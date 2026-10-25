@@ -55,11 +55,11 @@ This section supersedes the earlier local-model blocked status; hosted and Jira 
 - Pinned `gpt-4.1-2025-04-14`: 108/108 live planner checks (36 cases × 3), zero critical failures, gate passed. Report: `evals/results/live.json`.
 - Live task proposals: 10/10 structure/category/evidence checks. Report: `evals/results/tasks-live.json`. Agent inspection found no invented evidence IDs or customer-impact figures in the final proposals. This is not independent human review. Wording and proposed scope still need CSM review before Jira approval.
 - Baseline mini-model reports retained for honest comparison: 82/108 planner, 13 critical failures, plus semantically unsafe task proposals despite 10/10 structural checks.
-- Re-ran typecheck, 100 code/service tests, 11 SQL tests and 107 deterministic eval checks successfully. The portable production build passed before the final prompt revision; final revision is rebuilt before source delivery.
+- Re-ran typecheck, 100 code/service tests, 11 SQL tests and 107 deterministic eval checks successfully. The final prompt revision passed a fresh portable production build.
 - Both local D1 migrations applied. Local development server started with the configured model. Initial page HTTP response was 200 before browser approval was requested.
 - Current browser QA was **not performed**: browser access approvals were declined for both the existing ChatGPT page and local preview. Previous browser evidence remains historical.
 - Hosted runtime still has only the prior CSM/Jira configuration; no hosted OpenAI secret was configured in this continuation. No new production deployment is claimed.
 - Jira service credentials and issue type are not yet verified; no issue was created. Keep `JIRA_ENABLED=false`.
-- GitHub local authentication was repaired by the user; public source delivery is verified separately after push.
+- GitHub source delivery succeeded at commit `5d8f0015fee1e35d690e2a3bdf4648beb95783e9`. The full Linux GitHub Actions workflow passed: https://github.com/IdanHarari11/madlan-csm-ai-assignment/actions/runs/40224274936 (installation, typecheck, all deterministic checks and production build).
 
 The project is not ready for final submission until hosted AI, dedicated Jira, independent task-content review and the authenticated end-to-end workflow are verified.

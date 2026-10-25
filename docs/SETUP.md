@@ -58,3 +58,10 @@ The next local migration is `drizzle/0001_polite_unus.sql`; apply it once after 
 ## Unknown operation runbook
 
 Find the operation by trace/audit reference in D1. Search Jira for label `madlan-op-<operation UUID>` or `madlan-fp-<fingerprint>`. If an issue exists, reconcile the stored key/status. If an operator has verified that no issue was created, clear/requeue only through a controlled administrative change. Never automatically retry an unknown POST solely because time passed. The MVP provides no public endpoint for resetting these guards.
+
+
+## Current validated local configuration (2026-10-25)
+
+Pinned model: `gpt-4.1-2025-04-14`. The local OpenAI key was created through the secure setup flow with a 30-day expiration. It must be renewed before expiry for continued operation; never commit or copy its value into this document. CLI checks can load the ignored file without shell interpolation: `node --env-file=.dev.vars --import tsx evals/live.ts` and the corresponding `evals/tasks.ts` command.
+
+The public Site has not yet received this provider secret. Configure it as a secret using Sites runtime settings, set `AI_MODEL` to the pinned ID, then deploy the saved version and verify the actual hosted flow. Jira still requires a dedicated service token, verified create-enabled issue type, and controlled live testing before enabling writes.

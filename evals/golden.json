@@ -1,0 +1,362 @@
+[
+  {
+    "city": "",
+    "metric": "count",
+    "value": 520,
+    "includedCount": 520
+  },
+  {
+    "city": "",
+    "metric": "median_price",
+    "value": 4323000.0,
+    "includedCount": 514
+  },
+  {
+    "city": "",
+    "metric": "median_ppsm",
+    "value": 42145.63106796116,
+    "includedCount": 505
+  },
+  {
+    "city": "אשדוד",
+    "metric": "count",
+    "value": 25,
+    "includedCount": 25
+  },
+  {
+    "city": "אשדוד",
+    "metric": "median_price",
+    "value": 2916500.0,
+    "includedCount": 24
+  },
+  {
+    "city": "אשדוד",
+    "metric": "median_ppsm",
+    "value": 27858.608058608057,
+    "includedCount": 24
+  },
+  {
+    "city": "באר שבע",
+    "metric": "count",
+    "value": 29,
+    "includedCount": 29
+  },
+  {
+    "city": "באר שבע",
+    "metric": "median_price",
+    "value": 1944500.0,
+    "includedCount": 28
+  },
+  {
+    "city": "באר שבע",
+    "metric": "median_ppsm",
+    "value": 16441.768707482996,
+    "includedCount": 28
+  },
+  {
+    "city": "בית שמש",
+    "metric": "count",
+    "value": 27,
+    "includedCount": 27
+  },
+  {
+    "city": "בית שמש",
+    "metric": "median_price",
+    "value": 3886000.0,
+    "includedCount": 27
+  },
+  {
+    "city": "בית שמש",
+    "metric": "median_ppsm",
+    "value": 33194.444444444445,
+    "includedCount": 27
+  },
+  {
+    "city": "בת ים",
+    "metric": "count",
+    "value": 28,
+    "includedCount": 28
+  },
+  {
+    "city": "בת ים",
+    "metric": "median_price",
+    "value": 4655500.0,
+    "includedCount": 28
+  },
+  {
+    "city": "בת ים",
+    "metric": "median_ppsm",
+    "value": 47705.882352941175,
+    "includedCount": 27
+  },
+  {
+    "city": "גבעתיים",
+    "metric": "count",
+    "value": 28,
+    "includedCount": 28
+  },
+  {
+    "city": "גבעתיים",
+    "metric": "median_price",
+    "value": 5718500.0,
+    "includedCount": 28
+  },
+  {
+    "city": "גבעתיים",
+    "metric": "median_ppsm",
+    "value": 56089.950980392154,
+    "includedCount": 28
+  },
+  {
+    "city": "הרצליה",
+    "metric": "count",
+    "value": 28,
+    "includedCount": 28
+  },
+  {
+    "city": "הרצליה",
+    "metric": "median_price",
+    "value": 5296000.0,
+    "includedCount": 28
+  },
+  {
+    "city": "הרצליה",
+    "metric": "median_ppsm",
+    "value": 59785.71428571428,
+    "includedCount": 27
+  },
+  {
+    "city": "חולון",
+    "metric": "count",
+    "value": 39,
+    "includedCount": 39
+  },
+  {
+    "city": "חולון",
+    "metric": "median_price",
+    "value": 3583000.0,
+    "includedCount": 39
+  },
+  {
+    "city": "חולון",
+    "metric": "median_ppsm",
+    "value": 38917.808219178085,
+    "includedCount": 37
+  },
+  {
+    "city": "חיפה",
+    "metric": "count",
+    "value": 22,
+    "includedCount": 22
+  },
+  {
+    "city": "חיפה",
+    "metric": "median_price",
+    "value": 2656500.0,
+    "includedCount": 22
+  },
+  {
+    "city": "חיפה",
+    "metric": "median_ppsm",
+    "value": 24759.24075924076,
+    "includedCount": 22
+  },
+  {
+    "city": "ירושלים",
+    "metric": "count",
+    "value": 21,
+    "includedCount": 21
+  },
+  {
+    "city": "ירושלים",
+    "metric": "median_price",
+    "value": 5783000.0,
+    "includedCount": 21
+  },
+  {
+    "city": "ירושלים",
+    "metric": "median_ppsm",
+    "value": 48640.0,
+    "includedCount": 21
+  },
+  {
+    "city": "כפר סבא",
+    "metric": "count",
+    "value": 32,
+    "includedCount": 32
+  },
+  {
+    "city": "כפר סבא",
+    "metric": "median_price",
+    "value": 5738500.0,
+    "includedCount": 32
+  },
+  {
+    "city": "כפר סבא",
+    "metric": "median_ppsm",
+    "value": 50480.90536512667,
+    "includedCount": 32
+  },
+  {
+    "city": "מודיעין מכבים רעות",
+    "metric": "count",
+    "value": 34,
+    "includedCount": 34
+  },
+  {
+    "city": "מודיעין מכבים רעות",
+    "metric": "median_price",
+    "value": 4290500.0,
+    "includedCount": 32
+  },
+  {
+    "city": "מודיעין מכבים רעות",
+    "metric": "median_ppsm",
+    "value": 43386.666666666664,
+    "includedCount": 31
+  },
+  {
+    "city": "נתניה",
+    "metric": "count",
+    "value": 36,
+    "includedCount": 36
+  },
+  {
+    "city": "נתניה",
+    "metric": "median_price",
+    "value": 3973000.0,
+    "includedCount": 36
+  },
+  {
+    "city": "נתניה",
+    "metric": "median_ppsm",
+    "value": 39608.10810810811,
+    "includedCount": 35
+  },
+  {
+    "city": "פתח תקווה",
+    "metric": "count",
+    "value": 33,
+    "includedCount": 33
+  },
+  {
+    "city": "פתח תקווה",
+    "metric": "median_price",
+    "value": 4140000.0,
+    "includedCount": 33
+  },
+  {
+    "city": "פתח תקווה",
+    "metric": "median_ppsm",
+    "value": 38882.68156424581,
+    "includedCount": 33
+  },
+  {
+    "city": "ראשון לציון",
+    "metric": "count",
+    "value": 31,
+    "includedCount": 31
+  },
+  {
+    "city": "ראשון לציון",
+    "metric": "median_price",
+    "value": 3496000.0,
+    "includedCount": 31
+  },
+  {
+    "city": "ראשון לציון",
+    "metric": "median_ppsm",
+    "value": 32316.239316239316,
+    "includedCount": 29
+  },
+  {
+    "city": "רחובות",
+    "metric": "count",
+    "value": 28,
+    "includedCount": 28
+  },
+  {
+    "city": "רחובות",
+    "metric": "median_price",
+    "value": 4021000.0,
+    "includedCount": 27
+  },
+  {
+    "city": "רחובות",
+    "metric": "median_ppsm",
+    "value": 44578.37837837838,
+    "includedCount": 27
+  },
+  {
+    "city": "רמת גן",
+    "metric": "count",
+    "value": 28,
+    "includedCount": 28
+  },
+  {
+    "city": "רמת גן",
+    "metric": "median_price",
+    "value": 4854000.0,
+    "includedCount": 27
+  },
+  {
+    "city": "רמת גן",
+    "metric": "median_ppsm",
+    "value": 52061.22448979592,
+    "includedCount": 27
+  },
+  {
+    "city": "רעננה",
+    "metric": "count",
+    "value": 29,
+    "includedCount": 29
+  },
+  {
+    "city": "רעננה",
+    "metric": "median_price",
+    "value": 5777000.0,
+    "includedCount": 29
+  },
+  {
+    "city": "רעננה",
+    "metric": "median_ppsm",
+    "value": 57625.69832402235,
+    "includedCount": 29
+  },
+  {
+    "city": "תל אביב-יפו",
+    "metric": "count",
+    "value": 22,
+    "includedCount": 22
+  },
+  {
+    "city": "תל אביב-יפו",
+    "metric": "median_price",
+    "value": 8288000.0,
+    "includedCount": 22
+  },
+  {
+    "city": "תל אביב-יפו",
+    "metric": "median_ppsm",
+    "value": 80225.80645161291,
+    "includedCount": 21
+  },
+  {
+    "city": "אילת",
+    "metric": "count",
+    "value": 0,
+    "includedCount": 0
+  },
+  {
+    "city": "אילת",
+    "metric": "median_price",
+    "value": null,
+    "includedCount": 0
+  },
+  {
+    "city": "אילת",
+    "metric": "median_ppsm",
+    "value": null,
+    "includedCount": 0
+  }
+]

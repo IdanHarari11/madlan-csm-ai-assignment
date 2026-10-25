@@ -1,0 +1,544 @@
+{
+  "generatedAt": "2026-10-25T18:57:13.579Z",
+  "mode": "deterministic",
+  "passed": 107,
+  "total": 107,
+  "liveModelEvaluation": "NOT_RUN_NO_CREDENTIALS",
+  "results": [
+    {
+      "id": "golden::count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden::median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden::median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:אשדוד:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:אשדוד:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:אשדוד:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:באר שבע:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:באר שבע:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:באר שבע:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:בית שמש:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:בית שמש:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:בית שמש:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:בת ים:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:בת ים:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:בת ים:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:גבעתיים:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:גבעתיים:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:גבעתיים:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:הרצליה:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:הרצליה:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:הרצליה:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:חולון:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:חולון:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:חולון:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:חיפה:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:חיפה:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:חיפה:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:ירושלים:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:ירושלים:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:ירושלים:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:כפר סבא:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:כפר סבא:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:כפר סבא:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:מודיעין מכבים רעות:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:מודיעין מכבים רעות:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:מודיעין מכבים רעות:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:נתניה:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:נתניה:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:נתניה:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:פתח תקווה:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:פתח תקווה:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:פתח תקווה:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:ראשון לציון:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:ראשון לציון:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:ראשון לציון:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רחובות:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רחובות:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רחובות:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רמת גן:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רמת גן:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רמת גן:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רעננה:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רעננה:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:רעננה:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:תל אביב-יפו:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:תל אביב-יפו:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:תל אביב-יפו:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:אילת:count",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:אילת:median_price",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "golden:אילת:median_ppsm",
+      "category": "independent numeric oracle",
+      "pass": true
+    },
+    {
+      "id": "permutation:mean_price",
+      "category": "metamorphic",
+      "pass": true
+    },
+    {
+      "id": "permutation:median_price",
+      "category": "metamorphic",
+      "pass": true
+    },
+    {
+      "id": "permutation:mean_ppsm",
+      "category": "metamorphic",
+      "pass": true
+    },
+    {
+      "id": "permutation:median_ppsm",
+      "category": "metamorphic",
+      "pass": true
+    },
+    {
+      "id": "permutation:count",
+      "category": "metamorphic",
+      "pass": true
+    },
+    {
+      "id": "grader:he-median",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:he-mean",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:he-mean-ppsm",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:count-all",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:count-city",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:alias-ta",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:alias-bs",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:alias-modiin",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:half-room",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:parking-false",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:year-range",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:israeli-date",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:unknown-city",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:unknown-deal",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:conflict-deal",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:quality",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:ambiguous-price",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:ambiguous-number",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:ambiguous-expensive",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:valuation",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:forecast",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:rent",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:causal",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:customers",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:coords",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:comparison",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:open-jira",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:priority-injection",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:prompt-injection",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:sql-injection",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:false-answer",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:history-switch",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:history-ambiguous",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:english-query",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:typo-query",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "grader:missing-date-field",
+      "category": "eval grader self-check",
+      "pass": true
+    },
+    {
+      "id": "no-tools:unsupported",
+      "category": "safety boundary",
+      "pass": true
+    },
+    {
+      "id": "no-tools:clarify",
+      "category": "safety boundary",
+      "pass": true
+    },
+    {
+      "id": "unknowns-not-urgent",
+      "category": "priority safety",
+      "pass": true
+    },
+    {
+      "id": "four-conflicts",
+      "category": "real-data audit",
+      "pass": true
+    },
+    {
+      "id": "task-invalid-schema",
+      "category": "structured output",
+      "pass": true
+    },
+    {
+      "id": "no-evidence-no-bug",
+      "category": "task grounding",
+      "pass": true
+    }
+  ]
+}

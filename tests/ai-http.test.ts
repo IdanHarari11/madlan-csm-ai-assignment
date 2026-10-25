@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { planQuery,generator,modelReady } from '../lib/ai';
+import type { StructuredGenerator } from '../lib/ai';
+import { emptyFilters,planSchema,chatSchema } from '../lib/contracts';
+import { readBody,endpoint,AppError } from '../lib/http';
+import { executePlan } from '../lib/investigation';
+import { dataset } from '../lib/data';
+const plan={intent:'query',filters:emptyFilters,metric:'count',dealId:null,clarification:null};
+const stub=(value:unknown)=>(async()=>value) as StructuredGenerator;
+test('invalid structured model output fails closed',async()=>{await assert.rejects(()=>planQuery(stub({...plan,sql:'DROP DATABASE'}),'x',[],{}),/MODEL_INVALID_PLAN/);});
+test('invalid typed filter range fails before tool execution',async()=>{await assert.rejects(()=>planQuery(stub({...plan,filters:{...emptyFilters,roomsMin:5,roomsMax:2}}),'x',[],{}),/MODEL_INVALID_PLAN/);});
+test('invented deal ID format is rejected',async()=>{await assert.rejects(()=>planQuery(stub({...plan,intent:'deal',dealId:'../../secrets'}),'x',[],{}),/MODEL_INVALID_PLAN/);});
+test('model cannot insert a numeric answer into strict plan',()=>assert.equal(planSchema.safeParse({...plan,answer:999999}).success,false));
+test('unsupported request invokes no data tools',()=>{const r=executePlan(dataset('2026-10-25'),{...plan,intent:'unsupported',filters:{},metric:'count'},'2026-10-25');assert.deepEqual(r.tools,[]);assert(!('result' in r));});
+test('nonexistent deal receives an honest not-found response',()=>{const r=executePlan(dataset('2026-10-25'),{...plan,intent:'deal',dealId:'D999999',filters:{},metric:'count'},'2026-10-25');assert.deepEqual(r.deals,[]);assert.match(r.message,/לא נמצא/);});
+test('model unconfigured is explicit; deterministic fallback is not called AI',async()=>{assert.equal(modelReady({}),false);await assert.rejects(()=>generator({})(planSchema,'x','x'),/MODEL_NOT_CONFIGURED/);});
+test('provider 503 is reported with no automatic retries',async()=>{let calls=0;const gen=generator({OPENAI_API_KEY:'test-only',AI_MODEL:'test-model'},async()=>{calls++;return new Response('unavailable',{status:503});});await assert.rejects(()=>gen(planSchema,'x','x'),/MODEL_UNAVAILABLE/);assert.equal(calls,1);});
+test('provider timeout gets honest bounded-time message',async()=>{let calls=0;const gen=generator({OPENAI_API_KEY:'test-only',AI_MODEL:'test-model'},async()=>{calls++;throw new DOMException('timed out','TimeoutError');});await assert.rejects(()=>gen(planSchema,'x','x'),/MODEL_TIMEOUT/);assert.equal(calls,1);});
+test('cross-origin mutation rejected before JSON processing',async()=>{const req=new Request('https://desk.example/api/chat',{method:'POST',headers:{Origin:'https://evil.example','Content-Type':'application/json'},body:JSON.stringify({message:'hello'})});await assert.rejects(()=>readBody(req,chatSchema),/ORIGIN_DENIED/);});
+test('oversized request is rejected',async()=>{const req=new Request('https://desk.example/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'x'.repeat(25000)})});await assert.rejects(()=>readBody(req,chatSchema),/BODY_TOO_LARGE/);});
+test('malformed JSON returns safe validation error',async()=>{const req=new Request('https://desk.example/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:'not-json'});await assert.rejects(()=>readBody(req,chatSchema),/INVALID_INPUT/);});
+test('errors never expose stack, secret or raw provider message',async()=>{const r=await endpoint(async()=>{throw new Error('SECRET_API_TOKEN_123 stack at server');});const b=await r.json() as Record<string,unknown>;assert.equal(r.status,500);assert(!JSON.stringify(b).includes('SECRET'));assert.equal(typeof b.traceId,'string');});
+test('known errors preserve stable status/code and trace',async()=>{const r=await endpoint(async()=>{throw new AppError('RATE_LIMIT',429,'מכסה');});assert.equal(r.status,429);const b=await r.json() as {error:{code:string}};assert.equal(b.error.code,'RATE_LIMIT');});
+
+test('task planner can refuse spam without generating a stored draft',async()=>{const {planTask}=await import('../lib/ai');await assert.rejects(()=>planTask(stub({decision:'unsupported',reason:'Spam request',content:null}),{request:'spam'}),/TASK_UNSUPPORTED/);});
+test('task planner asks for evidence instead of recategorizing unsupported bug',async()=>{const {planTask}=await import('../lib/ai');await assert.rejects(()=>planTask(stub({decision:'clarify',reason:'Missing evidence',content:null}),{request:'bug'}),/TASK_NEEDS_CLARIFICATION/);});
+test('provider malformed structured output never becomes a result',async()=>{
+ const response={id:'resp_test',object:'response',created_at:1792900000,model:'test-model',status:'completed',output:[{id:'msg_test',type:'message',role:'assistant',status:'completed',content:[{type:'output_text',text:'{"injected":true}',annotations:[]}]}],usage:{input_tokens:10,output_tokens:10,total_tokens:20}};
+ const gen=generator({OPENAI_API_KEY:'test-only',AI_MODEL:'test-model'},async()=>Response.json(response));await assert.rejects(()=>gen(planSchema,'x','x'),/MODEL_INVALID_OUTPUT/);
+});

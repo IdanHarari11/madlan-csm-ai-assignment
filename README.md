@@ -1,12 +1,41 @@
-# Madlan Evidence Desk
+# Madlan — Customer Data Investigation
 
-A Hebrew/RTL investigation desk for Customer Success: ask a question about the supplied transaction CSV, inspect deterministic calculations and source records, and prepare an evidence-backed Jira proposal with a policy-based priority. A permitted CSM must review and explicitly confirm every write.
+A public Hebrew/RTL chat for a Customer Success Manager investigating “this number looks wrong.” Give it a transaction ID or a reproducible metric question. It inspects the supplied CSV, shows source records and calculations, and provides a proposed customer reply and an internal investigation summary.
 
-**Release state:** migrating to Vercel with Next.js, dedicated Neon Postgres and Neon Auth. Local AI is validated on pinned `gpt-4.1-2025-04-14` (108/108 planner checks and 10/10 task structure/evidence checks). Jira writes remain disabled pending dedicated service credentials. See `docs/VERCEL_SETUP.md` and `docs/QA_REPORT.md`.
+- **Live app:** https://madlan-csm-chat.vercel.app/
+- **Repository:** https://github.com/IdanHarari11/madlan-csm-ai-assignment
+- **One-page CSM guide:** [Hebrew guide](docs/CSM_GUIDE.md) · [live guide](https://madlan-csm-chat.vercel.app/guide)
+- **AI working log:** [AI_LOG.md](docs/AI_LOG.md)
+- **Validation and limits:** [QA_REPORT.md](docs/QA_REPORT.md)
+- **English demo:** [DEMO.md](docs/DEMO.md)
 
-## Quick start
+This is an independent assignment prototype, not an official Madlan product or a connection to Madlan production. The CSM workflow is a product hypothesis inferred from the role, not a claim based on customer interviews.
 
-Node 22.x and pnpm. Install using the included macOS/Linux environment-aware helper, then run the checks:
+## Try one investigation
+
+Ask: **לקוח מדווח שהמחיר בעסקה D100017 לא נכון. מה אפשר לבדוק?**
+
+The source has two prices, 1,919,000 and 1,851,548 NIS, under the same ID (CSV rows 11 and 475). The app preserves both, avoids selecting an authoritative value, explains the price-calculation exclusion, and proposes a bounded customer reply. Expand the raw records and copy the internal summary. Nothing is automatically corrected, emailed or submitted to Jira.
+
+Then ask: **מה חציון המחיר למ״ר בדירות 4 חדרים בחולון?** The expected sample result is approximately **38,260 NIS/sqm**, based on IDs D100027, D100074 and D100211, with a small-sample warning. A bare “this number is wrong” prompts clarification.
+
+## Why this product
+
+A CSM needs to distinguish a different metric definition from missing or conflicting source data before promising a fix or escalating to engineering. The product closes one useful loop: customer question → source investigation → understandable answer and reproducible handoff. The CSV supports that loop; it cannot establish root cause, production state, customer impact or property valuation.
+
+The LLM does substantive work: interpreting Hebrew/English intent, supported constraints, follow-ups and ambiguity into a strict tool plan. Code retrieves the records and performs every calculation. Customer-facing explanations are deliberately assembled from tool findings, rather than adding a second unconstrained model writer. Drafts require human review before use.
+
+## Data and assumptions
+
+`data/deals.csv` is the unchanged supplied file: 530 rows, 520 unique transaction IDs. `data/deals.json` is lossless parsed CSV. Fields include location, property characteristics, amenities, date, price, reported price per sqm and source. No embeddings, external enrichment or vector database is needed to search this complete small table.
+
+Duplicate IDs count once. Materially conflicting variants are preserved and excluded from price metrics; no source is declared authoritative. Missing/invalid inputs, future dates and suspicious price/area values are excluded under explicit policies. A month-only date matches only when the whole month lies in the requested interval. Computed price per sqm is price/area; the mean is a mean of ratios, not area-weighted. A flag is a reason to investigate, not proof of an erroneous record. See [DECISIONS.md](docs/DECISIONS.md).
+
+Supported filters: city, neighborhood, property type, rooms, date, parking, elevator and safe room. Price thresholds, floor, balcony, year built and street filters are not implemented. Raw field availability does not imply a filtering capability. Unsupported constraints must not silently disappear.
+
+## Run and verify
+
+Use Node 22.x and the pinned pnpm version. Follow [VERCEL_SETUP.md](docs/VERCEL_SETUP.md) for dedicated PostgreSQL and Neon Auth configuration. Store secrets only in ignored local environment files or hosting secrets.
 
 ```sh
 npm run install:ci
@@ -14,53 +43,35 @@ pnpm typecheck
 pnpm test
 pnpm test:db
 pnpm eval
+pnpm eval:chat
+pnpm build
 pnpm dev
 ```
 
-Runtime values for CLI checks can be loaded from ignored `.dev.vars` with Node’s `--env-file` option; do not commit local secrets. Next.js development additionally needs the PostgreSQL and Neon Auth configuration described in the setup guide.
+Without configured AI credentials, free-text questions receive an explicit configuration error; only the labeled example buttons can invoke direct tools. Do not describe direct-mode examples as live AI.
 
-The CSV is unchanged at `data/deals.csv`; `data/deals.json` is its lossless parsed representation. The domain accepts an explicit as-of date. No external data enrichment, vector DB or Redis is required for 530 input rows.
+Run live evals with your ignored environment file (never commit keys):
+
+```sh
+EVAL_REPORT_PATH=evals/results/my-regression.json node --env-file=.dev.vars --import tsx evals/chat-audit.ts --live
+EVAL_REPEATS=3 EVAL_REPORT_PATH=evals/results/my-customer.json node --env-file=.dev.vars --import tsx evals/chat-audit.ts --live --customer
+```
+
+The Python CSV oracle independently checks numeric values, cohorts and exact evidence/exclusions. Model eval expectations never enter the planner input. Reports retain model and code hashes, failed intermediate runs and grading-policy changes. No finite eval corpus proves universal correctness.
 
 ## Architecture
 
-- `lib/domain.ts`: parsing, canonical labels, duplicate/conflict policy, independent tools, statistics, provenance and priority.
-- `lib/contracts.ts`: closed planner and task schemas; strict server request contracts.
-- `lib/ai.ts`: bounded structured planning and task generation through the installed AI SDK; 20-second timeout, zero retries, typed errors. Supports AI Gateway or OpenAI Responses provider.
-- `lib/investigation.ts`: tool dispatcher and factual response construction. All numerical answers come from code; the model never writes the numeric answer.
-- `lib/task-service.ts`: ownership, draft expiry, idempotency, duplicate gate, external-call state transitions.
-- `lib/postgres-store.ts`, `postgres/`: active persistent Postgres storage and atomic quota/uniqueness guards. `lib/store.ts` retains shared contracts and the legacy D1 implementation.
-- `lib/jira.ts`: tenant-scoped Jira Cloud v3 adapter, ADF descriptions and conservative unknown-outcome handling.
-- `app/desk.tsx`, `app/components/`: a single RTL chat, on-demand source inspection and inline guided task confirmation.
-- `tests/`, `evals/`: deterministic tests, actual SQL concurrency tests, independent Python golden oracle, live-model corpora and gates.
+- `lib/ai.ts`, `lib/contracts.ts`: strict model plan, capability boundary, bounded latency and typed errors; zero automatic retries.
+- `lib/domain.ts`: normalization, duplicates, filtering, quality checks and arithmetic.
+- `lib/investigation.ts`, `lib/customer-case.ts`: deterministic tool dispatch, evidence-based case assessment and proposed replies.
+- `app/desk.tsx`, `app/components/`: single RTL conversation, expandable sources, copyable draft and internal handoff.
+- `tests/`, `evals/`: unit/service/rendering tests, CSV oracle, live planner/customer scenarios and SQL concurrency tests.
+- `lib/postgres-store.ts`, `postgres/`: active persistence, authorization, quotas and atomic write safeguards for the deferred authenticated extension.
 
-See [decisions and limitations](docs/DECISIONS.md), [CSM guide](docs/CSM_GUIDE.md), [AI log](docs/AI_LOG.md), [evaluation plan](docs/EVAL_PLAN.md), [setup](docs/SETUP.md) and [English demo](docs/DEMO.md).
+Hosting uses Next.js on Vercel, a dedicated Neon Postgres database, and pinned `gpt-4.1-2025-04-14`. Production deployment gates migration, isolated-schema PostgreSQL tests and the build. CI also runs the independent CSV audit. Logs record trace IDs, model, latency and token counts, without logging the API key.
 
-## Commands
+## Deliberate scope cuts
 
-| Command | Purpose |
-|---|---|
-| `pnpm typecheck` | Type safety |
-| `pnpm test` | Domain, service, API contract and mocked-provider tests |
-| `pnpm test:db` | Actual shipped SQL on SQLite, including concurrent writes |
-| `pnpm eval` | Numerical goldens, invariants and grader self-checks (not live AI) |
-| `pnpm eval:live` | Actual model planner; exits 2 without credentials |
-| `pnpm eval:tasks` | Actual model task proposals; human semantic review still required |
-| `python3 evals/reference.py` | Deliberate regeneration of independent goldens; review the diff |
+No production/customer data integration, source correction, valuation, forecasting, causal diagnosis or automatic outbound messages. Jira is a deferred user-requested extension, not an original assignment requirement; it stays disabled and its unavailable actions are hidden from the public workflow. No Paperclip. Legacy Sites/D1 and protected Jira adapter code remain for continuity; the active deployment is Vercel/Postgres.
 
-Live model ID is configured, not guessed. Runtime secrets are never committed. The public experience is read-only unless a signed-in user's email appears in the explicit CSM allowlist. Missing identity, database, key or write-enable flag fails closed. There is no hard-coded admin token and no production auth bypass.
-
-## Hosting
-
-The active target is Vercel: native Next.js App Router functions, Neon Postgres for durable drafts/budgets/operations and Neon Auth for verified-email sessions. Public visitors may investigate data; only verified users in the server-side `CSM_EMAILS` allowlist may prepare or approve drafts. Client-supplied identity headers are never trusted.
-
-`lib/postgres-store.ts` implements the store adapter. PostgreSQL triggers serialize Jira reservations with a transaction advisory lock and bind each attempt to its owner, fingerprint and reviewed revision. Edits acquire the same lock. Every production build applies the idempotent schema and exercises concurrent guards in a unique temporary test schema. The prior Cloudflare/D1 adapter and migrations remain historical/reference code; their SQL tests do not substitute for testing the active PostgreSQL adapter.
-
-Production secrets are stored as sensitive Vercel environment variables, outside source and browser bundles. Read-only public access is independent from CSM authorization. No automatic Jira reconciliation is included; an unknown external POST is never blindly retried.
-
-## Reference documentation verified during implementation
-
-- Installed `ai@7.0.143` and `@ai-sdk/openai@4.0.96` bundled docs/source for `generateText`, `Output.object`, custom providers and abort/retry options.
-- [Jira enhanced JQL search](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/).
-- [Jira issue creation / ADF](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/).
-
-Work remains the candidate's. No affiliation with or endorsement by Madlan is implied.
+Saved browser permissions have blocked visual end-to-end verification; server rendering tests are not a substitute. Actual browser QA status and any remaining limits are recorded in QA_REPORT.md. Positive OTP sign-in and real Jira creation are outside the submitted public investigation workflow and are not claimed verified.

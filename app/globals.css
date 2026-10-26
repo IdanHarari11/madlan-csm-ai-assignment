@@ -5,3 +5,5 @@
 @media print{.chat-header,.composer-area,.follow-up-action,.task-actions,.choice-buttons,.guide .back{display:none}.guide{margin:0;padding:0;max-width:none}.guide h1{font-size:22px;margin:0 0 12px}.guide h2{margin:12px 0 5px;font-size:15px}.guide p,.guide li{font-size:11px;line-height:1.65}.guide .quote{padding:10px}}
 
 .auth-page{max-width:440px;margin:80px auto;padding:24px;line-height:1.7}.auth-page form,.auth-page label{display:flex;flex-direction:column;gap:12px}.auth-page input,.auth-page button{padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}.auth-page button{cursor:pointer;background:#eef2ff}.auth-page [role=alert]{color:#b91c1c}
+
+.customer-case{margin-block:16px;padding-inline-start:16px;border-inline-start:3px solid #287b75}.customer-case h3{font-size:14px;margin:14px 0 4px}.case-calculation{font-variant-numeric:tabular-nums}.case-summary{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.8}.copy-status{font-size:12px;margin-inline-start:10px}.welcome .welcome-note{font-size:13px}.reply-draft summary{font-weight:600}

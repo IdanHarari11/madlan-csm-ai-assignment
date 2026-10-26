@@ -1,3 +1,33 @@
+# Submission release — customer investigation
+
+This is the current release record; earlier audit sections below are historical.
+
+**Primary public workflow:** complaint or deal ID → source records and arithmetic → assessment and next step → copyable proposed customer reply and internal handoff. Public investigation requires no login. Jira is deferred, disabled and hidden from this workflow. No email or ticket is sent.
+
+| Gate | Observed result | Evidence |
+| --- | --- | --- |
+| Code/service/contract/rendering tests | 117/117 | `pnpm test`, including `tests/customer-case.test.ts` |
+| Independent CSV values and evidence | 155/155 | `evals/results/chat-source-audit.json` |
+| Current customer workflow live eval | 36/36 (12 cases, three repetitions) | `evals/results/submission-customer-final.json` |
+| Current expanded chat live regression | 36/36 | `evals/results/submission-regression-final.json` |
+| Prior deterministic harness | 107/107; not live calls | `evals/results/deterministic.json` |
+| Legacy SQLite concurrency guards | 11/11 | `pnpm test:db` |
+| TypeScript and production build | Passed locally | Deployment separately gates migration and isolated-schema hosted Postgres verification |
+
+The current reports pin the model and hash the prompt and relevant source files. They supersede older live scores when discussing this release. The earlier 12-case holdout was genuinely new at the time of its initial run; it does not establish held-out coverage of every subsequent prompt change. Customer workflow cases are a regression corpus, not held out. A failed 33/36 customer baseline is retained: financial-loss questions with a deal ID were incorrectly routed to deal inspection. Capability refusal now takes precedence over ID routing.
+
+The proposed customer text is generated deterministically from tool facts and reviewed by the CSM. Conflict, missing-area, future-date and suspicious-data cases cannot produce an authoritative per-sqm value. Tests verify the real conflict's source rows and raw prices, unknown-ID behavior, lossless evidence and the actual rendered findings/reply. A normal arithmetic result does not claim validation against the customer's screen. Clipboard failure has a manual-copy message, but actual clipboard behavior has not been browser-verified.
+
+**Browser gate remains blocked:** after the user stated they changed permission to Allow, the supported browser tool was retried once and rejected the origin again due to a saved permission or managed policy. No workaround was used. Desktop/mobile appearance, keyboard interaction, clipboard and actual browser navigation cannot be claimed verified. This is a material remaining validation limitation. It does not prevent code/tests/publication or delivery of the source, guide, AI log and demo materials.
+
+**Deferred extension:** positive OTP sign-in, real Jira creation and anonymous Jira links are unverified and outside the submitted public workflow. The older task-content eval leaked expected labels and is not independent semantic proof. These features must be revalidated before enabling the extension. No claim of universal correctness or original five-hour completion is made.
+
+Deployment/CI identifiers for the exact shipped revision are recorded in the external submission delivery artifact, avoiding a self-referential commit hash in this source file.
+
+---
+
+## Previous chat audit
+
 # Current chat audit — 2026-10-26
 
 This section supersedes historical readiness statements below. User direction: validate the chat first; Jira is deferred and remains disabled. Paperclip is out of scope.

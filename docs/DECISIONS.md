@@ -1,3 +1,15 @@
+# Submission product decision
+
+The primary user is a CSM investigating a reported discrepancy. The shipped public path is question/deal ID → source inspection and calculation → bounded finding → reviewed customer reply and reproducible internal handoff. The workflow is a hypothesis derived from the role, not validated customer research.
+
+The LLM translates natural language into constrained tool plans. Customer response wording is a deterministic proposal based on the tool findings. This intentionally trades stylistic flexibility for traceability: a second model cannot add root causes, promises or invented values. A conflict never yields an authoritative value, and a clean arithmetic result does not verify the customer's production screen. Unsupported capabilities take precedence over the presence of a transaction ID.
+
+Jira is disabled and hidden from the public workflow. It is a deferred extension, not an original assignment acceptance criterion. No outbound message or ticket creation is required to complete an investigation. Paperclip, production integration, valuation, source correction and causal diagnosis remain out of scope.
+
+---
+
+## Earlier implementation decisions (retained)
+
 # Decisions and assumptions
 
 ## Product

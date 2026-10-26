@@ -3,7 +3,8 @@ import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {chatCases as regressionCases} from './chat-cases';
 import {holdoutCases} from './chat-holdout';
-const chatCases=process.argv.includes('--holdout')?holdoutCases:regressionCases;
+import {customerCases} from './customer-cases';
+const chatCases=process.argv.includes('--customer')?customerCases:process.argv.includes('--holdout')?holdoutCases:regressionCases;
 import {dataset,overview,today,plannerCatalogue} from '../lib/data';
 import {calculateMetrics} from '../lib/domain';
 import type {Filters,Metric} from '../lib/domain';
@@ -12,7 +13,7 @@ import {generator,modelReady,planQuery} from '../lib/ai';
 
 const sha=(path:string)=>createHash('sha256').update(readFileSync(path)).digest('hex');
 const promptSha256=sha('lib/ai.ts');
-const codeSha256=Object.fromEntries(['lib/domain.ts','lib/investigation.ts','lib/data.ts','lib/contracts.ts','lib/deadline.ts','evals/chat-cases.ts','evals/chat-holdout.ts','evals/chat-oracle.py'].map(path=>[path,sha(path)]));
+const codeSha256=Object.fromEntries(['lib/domain.ts','lib/investigation.ts','lib/customer-case.ts','lib/data.ts','lib/contracts.ts','lib/deadline.ts','evals/chat-cases.ts','evals/customer-cases.ts','evals/chat-holdout.ts','evals/chat-oracle.py'].map(path=>[path,sha(path)]));
 const asOf=process.env.EVAL_AS_OF??today(),ds=dataset(asOf);
 const requests:{id:string;filters:Filters;metric:Metric;asOf:string}[]=[];
 const metrics:Metric[]=['count','median_price','mean_price','median_ppsm','mean_ppsm'];
@@ -69,6 +70,9 @@ if(deterministic.some(r=>!r.pass)){process.exitCode=1;}else if(process.argv.incl
     const found=ds.find(d=>d.id===c.expected.dealId);
     if(!same(answer.deals?.map(d=>d.id),found?[found.id]:[]))failures.push('deal_evidence');
     if(found&&!same(answer.deals?.[0].raw,found.raw))failures.push('raw_provenance');
+    if(found&&(!answer.customerCase||answer.customerCase.dealId!==found.id||!same(answer.customerCase.sourceRows,found.rows)))failures.push('customer_case_provenance');
+    if(found?.conflict&&answer.customerCase&&!answer.customerCase.calculation.includes('לא מוצג מחיר'))failures.push('conflict_authoritative_value');
+    if(!found&&answer.customerCase)failures.push('invented_customer_case');
    }
    if((plan.intent==='clarify'||plan.intent==='unsupported')&&(answer.tools.length||answer.result))failures.push('unexpected_tool_execution');
    if(plan.intent==='clarify'&&!answer.suggestedQuestion?.trim())failures.push('missing_clarification');

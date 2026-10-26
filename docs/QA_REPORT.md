@@ -1,3 +1,25 @@
+# Conversation continuity and SSE progress — current release
+
+The current scope adds bounded structured memory, restoration after refresh, scope-stamped prior answers, streaming progress and provider cancellation. Jira remains disabled and no new integration or external conversation store was introduced.
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Unit/service/contract/rendering/stream/session tests | 141/141 | `pnpm test`, including `tests/conversation-stream.test.ts` |
+| Independent CSV values, cohorts and evidence | 155/155 | `evals/results/chat-source-audit.json` |
+| Live follow-up context transitions | 16/16 (8 cases × 2) | `evals/results/conversation-live.json` |
+| Current global regression | 36/36 | `evals/results/conversation-global-regression.json` |
+| Current selection regression | 24/24 (12 cases × 2) | `evals/results/map-scope.json` |
+
+The new tests cover scope branches, replayed numeric values rather than client claims, source-free session serialization, refresh reconstruction, malformed/obsolete sessions, history/body byte limits, SSE progress before completion, fragmented UTF-8/CRLF, sanitized terminal errors, truncated streams, retained traces and cancellation through stream/SDK/provider signals. A source-only TypeScript issue in a new eval helper was caught by the build and corrected before publication. Finite model corpora do not prove all conversations are correct.
+
+SSE carries actual workflow events followed by one complete verified result. It is not token-by-token explanatory text and never publishes partial model arithmetic. Local sessions retain up to 20 turns; at most six same-scope plans/questions form model memory, reduced if needed to fit the request byte budget. The server replays these plans and computes verified result summaries. Refresh re-executes saved plans from current data and labels the current as-of date; raw rows and client-provided numbers are not trusted persistent facts. An obsolete data version resets restoration.
+
+No browser/device verification is claimed: the saved permission/managed policy still blocks the supported browser tool. API streaming/cancellation behavior is verified with real Web Streams and mocked provider transports; the live model runs exercise actual planning with reconstructed context. They do not establish real-device UI or a deployed-network streaming measurement. Hosted build, Postgres/style gates and CI results for the exact shipped commit are recorded in the delivery artifact.
+
+---
+
+## Earlier release evidence
+
 # Map explorer release — current scope
 
 The primary interface is now a map/card explorer with a selection-bound chat. Earlier complaint-led release sections below are historical. See MAP_EXPLORER.md for exact behavior, geographic precision and provider attribution.

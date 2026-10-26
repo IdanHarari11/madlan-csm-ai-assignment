@@ -1,0 +1,284 @@
+{
+  "generatedAt": "2026-10-26T18:35:58.779Z",
+  "model": "gpt-4.1-2025-04-14",
+  "asOf": "2026-10-26",
+  "hashes": {
+    "lib/ai.ts": "aa626149c3c06432d0183d987b2fc102005057c80db06869c92380bf8e9ce8b4",
+    "lib/contracts.ts": "81674ae6166badee6b7ed30f1c05bd4d005ca2b77bd3aec20d6d619c397a8986",
+    "lib/scoped-investigation.ts": "07de28f17c95741a93f7aa3886964ffd26cc984eed68c07c3d79214d98bacf0a",
+    "lib/conversation-context.ts": "777bb88cd3402472d5de73d225c9638d87cc9452493658d4316ca4ab6df521e9"
+  },
+  "total": 16,
+  "passed": 16,
+  "gatePassed": true,
+  "results": [
+    {
+      "id": "mean-followup",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "city-followup",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "new-question",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "ירושלים"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "selected-average",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "mean_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "return-global",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "ignore-false-old-number",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "new-scope-no-inheritance",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 0
+    },
+    {
+      "id": "scope-loss-refusal",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": "לא ניתן לחשב הפסד כספי או להעריך נזק/השפעה כספית ללקוחות לפי הנתונים שנבחרו. אוכל לערוך השוואה בין העסקאות או להציג ממוצעים/מדדים סטטיסטיים בלבד."
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "mean-followup",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "city-followup",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "new-question",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "ירושלים"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "selected-average",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "mean_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "return-global",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "ignore-false-old-number",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 1
+    },
+    {
+      "id": "new-scope-no-inheritance",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "reconstructedSteps": 0
+    },
+    {
+      "id": "scope-loss-refusal",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": "אין אפשרות לחשב הפסד כספי של לקוחות מתוך הנתונים או להשיב על פניות הנוגעות להפסדים אישיים, השקעות או המלצות כספיות."
+      },
+      "reconstructedSteps": 1
+    }
+  ]
+}

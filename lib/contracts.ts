@@ -20,6 +20,8 @@ export const taskContentSchema=z.object({
 }).strict();
 export type TaskContent=z.infer<typeof taskContentSchema>;
 export const exploreSchema=z.object({filters:filterSchema,metric:metricSchema,dealId:z.string().regex(/^D\d{6}$/).optional()}).strict();
-export const chatSchema=z.object({message:z.string().trim().min(2).max(2000),selectedIds:z.array(z.string().regex(/^D\d{6}$/)).max(3).default([]),history:z.array(z.object({role:z.enum(['user','assistant']),content:z.string().max(2500)}).strict()).max(8).default([])}).strict();
+export const memoryPlanSchema=z.object({intent:z.enum(['query','deal','quality','clarify','unsupported','compare']),filters:filterSchema,metric:metricSchema,dealId:z.string().regex(/^D\d{6}$/).nullable(),clarification:z.string().max(500).nullable()}).strict();
+export const memoryStepSchema=z.object({question:z.string().max(600),selectedIds:z.array(z.string().regex(/^D\d{6}$/)).max(3),plan:memoryPlanSchema}).strict();
+export const chatSchema=z.object({message:z.string().trim().min(2).max(2000),dataVersion:z.string().max(80).optional(),memory:z.array(memoryStepSchema).max(6).default([]),selectedIds:z.array(z.string().regex(/^D\d{6}$/)).max(3).default([]),history:z.array(z.object({role:z.enum(['user','assistant']),content:z.string().max(2500)}).strict()).max(8).default([])}).strict();
 export const draftRequestSchema=z.object({request:z.string().trim().min(15).max(2000),evidenceIds:z.array(z.string().regex(/^D\d{6}$/)).max(30),impact:impactSchema}).strict();
 export const createIssueSchema=z.object({draftId:z.string().uuid(),revision:z.number().int().min(1),approved:z.literal(true)}).strict();

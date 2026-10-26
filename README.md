@@ -12,6 +12,12 @@ This section supersedes the prior product positioning below; underlying data ari
 
 ---
 
+## Conversation continuity and streaming progress
+
+Up to 20 turns are saved locally in this browser tab and reconstructed from validated plans after refresh. Prior answers retain their selection/filter labels when scope changes. The server replays up to six same-scope steps and supplies actual verified previous results, rather than trusting numbers from browser storage. The saved data version is checked; raw records are not copied into the session snapshot.
+
+The chat uses SSE to stream actual progress events, then a complete verified result or sanitized error. It does not stream unvalidated partial numbers or simulate token-by-token typing. Client cancellation reaches the server and provider signal; the hard deadline still bounds an uncooperative transport. No external memory service, conversation database or Jira work was added. Visual browser verification remains blocked by the saved permission/managed policy.
+
 ## Prior investigation implementation and setup
 
 # Madlan — Customer Data Investigation

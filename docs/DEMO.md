@@ -16,7 +16,7 @@ Inspect the actual filters, 38,260 NIS/sqm result, three evidence IDs and small-
 
 Select two cards. The scope chips show their IDs. Ask `השווה את המחיר למ״ר והמאפיינים שלהן`. Show the per-deal table, amenities and evidence. Then ask `מה המחיר הממוצע של העסקאות שבחרתי?` to distinguish a side-by-side comparison from an aggregate. The server restricts both to the selected IDs.
 
-Open D100017 alongside another deal. Its contradictory source prices are not collapsed into an authoritative comparison value. Null is not zero. Show that direct comparison remains available without AI. Clearing selection returns to all data and resets conversation context. Changing map filters does not silently discard a selected record; the chips retain it.
+Open D100017 alongside another deal. Its contradictory source prices are not collapsed into an authoritative comparison value. Null is not zero. Show that direct comparison remains available without AI. Clearing selection returns to all data while older turns retain their scope labels. Refresh restores up to 20 turns by replaying saved plans against the current sample, and the server reconstructs up to six same-scope steps for follow-ups. The chat streams actual planning/tool-progress events and emits a complete result after validation; it does not animate fake token output. Cancellation reaches the provider signal. Changing map filters does not silently discard a selected record; the chips retain it.
 
 ## 7:00–9:00 — Failure and evidence
 

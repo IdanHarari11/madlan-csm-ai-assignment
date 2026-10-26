@@ -2,7 +2,7 @@ import type {CustomerCase} from '../../lib/customer-case';
 import type { Deal,Filters,Impact,MetricResult } from '../../lib/domain';
 import type { DraftPayload } from '../../lib/task-service';
 export type ServiceStatus={dataset:{asOf:string;version:string};modelReady:boolean;jiraReady:boolean;canCreate:boolean;user:{displayName:string}|null};
-export type Investigation={kind:string;message:string;tools:string[];customerCase?:CustomerCase;customerReply?:string;deals?:Deal[];result?:MetricResult;quality?:{counts:Record<string,number>;uniqueDeals:number;conflictingDeals:number;flaggedDeals:number;filters?:Filters;excludedPartialDates?:number;asOf?:string};mode?:string;traceId?:string;suggestedQuestion?:string|null;plan?:unknown};
+export type Investigation={kind:string;message:string;tools:string[];scopeIds?:string[];comparison?:{id:string;city:string;street:string;propertyType:string;rooms:number|null;size:number|null;price:number|null;ppsm:number|null;date:string|null;parking:boolean|null;elevator:boolean|null;safeRoom:boolean|null;balcony:boolean|null;yearBuilt:number|null;floor:number|null;conflict:boolean;notes:string[]}[];customerCase?:CustomerCase;customerReply?:string;deals?:Deal[];result?:MetricResult;quality?:{counts:Record<string,number>;uniqueDeals:number;conflictingDeals:number;flaggedDeals:number;filters?:Filters;excludedPartialDates?:number;asOf?:string};mode?:string;traceId?:string;suggestedQuestion?:string|null;plan?:unknown};
 export type Turn={id:string;question:string;response?:Investigation;error?:string};
 export type Draft=DraftPayload&{draftId:string;revision:number;expiresAt:number};
 export type TaskContext={turnId:string;request:string;evidenceIds:string[]};

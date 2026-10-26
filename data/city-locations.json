@@ -1,0 +1,146 @@
+{
+  "אשדוד": {
+    "lat": 31.79213,
+    "lon": 34.64966,
+    "precision": "city",
+    "geonameId": 295629,
+    "source": "https://www.geonames.org/295629",
+    "name": "Ashdod"
+  },
+  "באר שבע": {
+    "lat": 31.25181,
+    "lon": 34.7913,
+    "precision": "city",
+    "geonameId": 295530,
+    "source": "https://www.geonames.org/295530",
+    "name": "Beersheba"
+  },
+  "בית שמש": {
+    "lat": 31.73072,
+    "lon": 34.99293,
+    "precision": "city",
+    "geonameId": 295432,
+    "source": "https://www.geonames.org/295432",
+    "name": "Bet Shemesh"
+  },
+  "בת ים": {
+    "lat": 32.01798,
+    "lon": 34.75003,
+    "precision": "city",
+    "geonameId": 295548,
+    "source": "https://www.geonames.org/295548",
+    "name": "Bat Yam"
+  },
+  "גבעתיים": {
+    "lat": 32.07225,
+    "lon": 34.81253,
+    "precision": "city",
+    "geonameId": 294999,
+    "source": "https://www.geonames.org/294999",
+    "name": "Givatayim"
+  },
+  "הרצליה": {
+    "lat": 32.16627,
+    "lon": 34.82536,
+    "precision": "city",
+    "geonameId": 294778,
+    "source": "https://www.geonames.org/294778",
+    "name": "Herzliya"
+  },
+  "חולון": {
+    "lat": 32.0122,
+    "lon": 34.77826,
+    "precision": "city",
+    "geonameId": 294751,
+    "source": "https://www.geonames.org/294751",
+    "name": "H̱olon"
+  },
+  "חיפה": {
+    "lat": 32.81303,
+    "lon": 34.99928,
+    "precision": "city",
+    "geonameId": 294801,
+    "source": "https://www.geonames.org/294801",
+    "name": "Haifa"
+  },
+  "ירושלים": {
+    "lat": 31.76904,
+    "lon": 35.21633,
+    "precision": "city",
+    "geonameId": 281184,
+    "source": "https://www.geonames.org/281184",
+    "name": "Jerusalem"
+  },
+  "כפר סבא": {
+    "lat": 32.175,
+    "lon": 34.90694,
+    "precision": "city",
+    "geonameId": 294514,
+    "source": "https://www.geonames.org/294514",
+    "name": "Kfar Saba"
+  },
+  "מודיעין מכבים רעות": {
+    "lat": 31.89385,
+    "lon": 35.01504,
+    "precision": "city",
+    "geonameId": 282926,
+    "source": "https://www.geonames.org/282926",
+    "name": "Modi‘in Makkabbim Re‘ut"
+  },
+  "נתניה": {
+    "lat": 32.33294,
+    "lon": 34.85917,
+    "precision": "city",
+    "geonameId": 294071,
+    "source": "https://www.geonames.org/294071",
+    "name": "Netanya"
+  },
+  "פתח תקווה": {
+    "lat": 32.0888,
+    "lon": 34.88666,
+    "precision": "city",
+    "geonameId": 293918,
+    "source": "https://www.geonames.org/293918",
+    "name": "Petaẖ Tiqva"
+  },
+  "ראשון לציון": {
+    "lat": 31.97102,
+    "lon": 34.78939,
+    "precision": "city",
+    "geonameId": 293703,
+    "source": "https://www.geonames.org/293703",
+    "name": "Rishon LeTsiyyon"
+  },
+  "רחובות": {
+    "lat": 31.89415,
+    "lon": 34.8095,
+    "precision": "city",
+    "geonameId": 293725,
+    "source": "https://www.geonames.org/293725",
+    "name": "Reẖovot"
+  },
+  "רמת גן": {
+    "lat": 32.08227,
+    "lon": 34.81065,
+    "precision": "city",
+    "geonameId": 293788,
+    "source": "https://www.geonames.org/293788",
+    "name": "Ramat Gan"
+  },
+  "רעננה": {
+    "lat": 32.1836,
+    "lon": 34.87386,
+    "precision": "city",
+    "geonameId": 293807,
+    "source": "https://www.geonames.org/293807",
+    "name": "Ra'anana"
+  },
+  "תל אביב-יפו": {
+    "lat": 32.08088,
+    "lon": 34.78057,
+    "precision": "city",
+    "geonameId": 293397,
+    "source": "https://www.geonames.org/293397",
+    "name": "Tel Aviv"
+  }
+}

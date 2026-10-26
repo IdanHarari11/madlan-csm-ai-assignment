@@ -1,50 +1,33 @@
-# English interview demo — 10 minutes
+# English demo — map and scoped chat (10 minutes)
 
-## 0:00–1:00 — Product decision
+## 0:00–2:00 — Browse the actual data
 
-“I built a data investigation chat for a CSM who receives ‘this number looks wrong.’ It turns that complaint into a reproducible investigation and a proposed customer response. This is a hypothesis about the workflow, not a claim that I interviewed Madlan's CSM team. The tool sees the supplied CSV, not Madlan production.”
+“I built an explorer for the supplied historical transaction sample. The map gives geographic context, cards expose records, and chat lets a user investigate or compare an explicit selection. These are not live sale listings.”
 
-## 1:00–4:00 — Customer moment
+Click a city marker. Open a popup preview and a deal card. Show reported price, characteristics, date, quality flags and raw source rows. Explain the important constraint first: there are no house numbers or coordinates in the CSV. The map groups transactions at city-level GeoNames points; it does not invent precise property positions. Attribution is visible. Card pagination makes all 520 unique deals accessible.
 
-Ask: `לקוח מדווח שהמחיר בעסקה D100017 לא נכון. מה אפשר לבדוק?`
+## 2:00–4:00 — Ask about the whole dataset
 
-Show “What we found,” the next step, and the proposed reply. Open the evidence: source rows 11 and 475 have prices 1,919,000 and 1,851,548 NIS. Both remain available. No authoritative price or per-sqm value is chosen. Explain why a source conflict is not proof of a production bug.
+Ask `מה חציון המחיר למ״ר בדירות 4 חדרים בחולון?`.
 
-Expand and copy the internal investigation summary. It preserves source rows, unknowns and next steps. Copy the customer response only after reviewing it; the app does not send emails or promise a fix. A missing transaction ID returns a request for clarification.
+Inspect the actual filters, 38,260 NIS/sqm result, three evidence IDs and small-sample warning. The map/list synchronizes to interpreted query filters. Arithmetic is deterministic; the LLM translates intent and constraints. Manual map filters do not silently change chat scope; the header explicitly states that the conversation covers the whole sample until records are selected.
 
-## 4:00–6:00 — The LLM and the arithmetic
+## 4:00–7:00 — Selection and comparison
 
-Ask: `מה חציון המחיר למ״ר בדירות 4 חדרים בחולון?`
+Select two cards. The scope chips show their IDs. Ask `השווה את המחיר למ״ר והמאפיינים שלהן`. Show the per-deal table, amenities and evidence. Then ask `מה המחיר הממוצע של העסקאות שבחרתי?` to distinguish a side-by-side comparison from an aggregate. The server restricts both to the selected IDs.
 
-The result is approximately 38,260 NIS/sqm, with three included IDs: D100027, D100074, D100211. Expand the interpreted filters and the small-sample warning. The LLM translates language into a constrained plan; code searches the full table and calculates the number. Mean per-sqm ratios would not be an area-weighted average. This is structured retrieval, with no vector DB.
+Open D100017 alongside another deal. Its contradictory source prices are not collapsed into an authoritative comparison value. Null is not zero. Show that direct comparison remains available without AI. Clearing selection returns to all data and resets conversation context. Changing map filters does not silently discard a selected record; the chips retain it.
 
-Try an unsupported price-threshold or valuation question. The app must refuse rather than silently remove the condition. An anomaly never establishes customer loss, root cause or live production impact.
+## 7:00–9:00 — Failure and evidence
 
-## 6:00–8:00 — Failures and tests
+Ask for future value or customer financial losses; these are unsupported. Ask to ignore selection and use every city; the model must clarify rather than escape the server scope. Unknown IDs and oversized selections are rejected.
 
-Show a retained failed baseline and the latest live reports. The independent Python oracle reads raw CSV and compares values and exact evidence membership. It is separate from the app's TypeScript calculation. Explain that tuned regression cases and new held-out questions are different evidence.
+Show `tests/map-scope.test.ts`, the independent Python CSV oracle and `evals/results/map-scope.json`. Preserve and show the failed aggregate run: the model confused an average with comparison; explain the repair. Separate mock-provider failures from actual live calls and distinguish a finite corpus from universal correctness. A provider timeout returns an honest message with a trace ID, with no automatic retry.
 
-For a reproducible provider-failure demonstration, run the explicitly simulated transport tests:
+## 9:00–10:00 — Tradeoffs
 
-```sh
-node --import tsx --test --test-name-pattern='provider|timeout|errors never expose' tests/ai-http.test.ts
-node --import tsx --test tests/deadline.test.ts
-```
+Proudest of: preserving the boundary between natural-language planning, server-enforced selection, deterministic numbers and source evidence.
 
-These are simulated failures, not a claimed live-provider outage. The same typed error path returns a clear message and trace ID. There is a caller deadline and no automatic retry. With AI configuration removed in a local environment, free text fails honestly while labeled direct examples remain available. Never alter production credentials during the interview.
+Next improvements: obtain accurate licensed street/building coordinates before mapping individual properties; observe real users and expand supported filters based on their needs. City aggregation is an explicit precision tradeoff, not a hidden implementation detail. State honestly that automated browser access remained blocked by saved permission/managed policy; do not claim visual/mobile/clipboard QA. The layout and controls are implemented and server rendering/build/tests passed.
 
-## 8:00–10:00 — Tradeoffs and ownership
-
-Proudest of: the boundary between model interpretation, independent evidence, arithmetic and a safe customer explanation.
-
-Least happy with: the limited query language and lack of real CSM feedback. Unsupported requests need a constrained language expansion, not prompt tricks. Explain any browser verification limitation honestly. Jira is disabled and deferred; it was not required by the original assignment. Customer replies are deterministic drafts to minimize invented claims, while the LLM performs intent/filter/follow-up interpretation.
-
-The next step would be observing real CSM investigations and measuring whether the tool reduces time to a correct response. No finite eval suite establishes correctness for every natural-language input.
-
-## Code walkthrough — 15 minutes
-
-1. Follow a request through `lib/contracts.ts` and `lib/ai.ts` into `lib/investigation.ts`.
-2. Show conflict/duplicate normalization and exclusion policy in `lib/domain.ts`.
-3. Show `lib/customer-case.ts`: no authoritative conflicting price, no invented cause, explicit unknowns.
-4. Show tests and `evals/chat-oracle.py`; contrast an actual bug caught with a grading-policy correction.
-5. Discuss public read-only investigation vs protected deferred external writes, server-held secrets, quotas and honest timeout behavior.
+Jira, outbound customer messages, predictions and Paperclip are out of this release. No production system or customer impact is inferred from the sample.

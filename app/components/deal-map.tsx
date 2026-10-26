@@ -1,0 +1,21 @@
+'use client';
+import {useEffect,useRef,useState} from 'react';
+import type * as Leaflet from 'leaflet';
+import locations from '../../data/city-locations.json';
+import type {Deal} from '../../lib/domain';
+import {format} from './chat-types';
+export default function DealMap({deals,selectedIds,onCity,onDeal}:{deals:Deal[];selectedIds:string[];onCity:(city:string)=>void;onDeal:(id:string)=>void}){
+ const element=useRef<HTMLDivElement>(null),map=useRef<Leaflet.Map|null>(null),layer=useRef<Leaflet.LayerGroup|null>(null),library=useRef<typeof Leaflet|null>(null);
+ const callbacks=useRef({onCity,onDeal});callbacks.current={onCity,onDeal};
+ const cameraKey=useRef('');
+ const [ready,setReady]=useState(false),[error,setError]=useState(false);
+ useEffect(()=>{let disposed=false;let observer:ResizeObserver|undefined;import('leaflet').then(L=>{if(disposed||!element.current)return;library.current=L;const m=L.map(element.current,{scrollWheelZoom:false}).setView([32.06,34.86],9);map.current=m;L.tileLayer(process.env.NEXT_PUBLIC_MAP_TILE_URL??'https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · <a href="https://www.geonames.org/">GeoNames</a>',maxZoom:16}).on('tileerror',()=>setError(true)).addTo(m);layer.current=L.layerGroup().addTo(m);observer=new ResizeObserver(()=>m.invalidateSize());observer.observe(element.current);setReady(true);}).catch(()=>setError(true));return()=>{disposed=true;observer?.disconnect();map.current?.remove();map.current=null;};},[]);
+ useEffect(()=>{const L=library.current,m=map.current,g=layer.current;if(!ready||!L||!m||!g)return;g.clearLayers();const groups=new Map<string,Deal[]>();for(const d of deals)groups.set(d.city,[...(groups.get(d.city)??[]),d]);const points:Leaflet.LatLngTuple[]=[];
+ for(const [city,rows]of groups){const loc=locations[city as keyof typeof locations];if(!loc)continue;const point:Leaflet.LatLngTuple=[loc.lat,loc.lon];points.push(point);const selected=rows.some(d=>selectedIds.includes(d.id));const icon=L.divIcon({className:'city-marker-wrapper',html:`<span class="city-marker ${selected?'marker-selected':''}">${rows.length}</span>`,iconSize:[42,42],iconAnchor:[21,21]});const marker=L.marker(point,{icon,alt:`${city}: ${rows.length} עסקאות. מיקום ברמת עיר.`,keyboard:true}).addTo(g);
+ const popup=document.createElement('div');popup.dir='rtl';popup.className='map-popup';const heading=document.createElement('strong');heading.textContent=`${city} · ${rows.length} עסקאות`;popup.appendChild(heading);const note=document.createElement('p');note.textContent='נקודת עיר בלבד — לא מיקום מדויק של הנכסים.';popup.appendChild(note);
+ for(const d of rows.slice(0,4)){const button=document.createElement('button');button.textContent=`${d.street} · ${d.rooms??'—'} חד׳ · ${d.conflict?'מחיר סותר':d.price===null?'מחיר חסר':'₪'+format(d.price)}`;button.onclick=()=>callbacks.current.onDeal(d.id);popup.appendChild(button);}
+ const all=document.createElement('button');all.textContent=`הצגת כל העסקאות ב${city} ←`;all.className='popup-all';all.onclick=()=>{callbacks.current.onCity(city);m.closePopup();};popup.appendChild(all);marker.bindPopup(popup,{maxWidth:300});}
+ const key=[...groups.keys()].sort().join('|');if(cameraKey.current!==key){cameraKey.current=key;if(points.length===1)m.setView(points[0],12);else if(points.length>1)m.fitBounds(L.latLngBounds(points),{padding:[36,36],maxZoom:11});}
+ },[deals,selectedIds,ready]);
+ return <><div ref={element} className="leaflet-host" role="region" aria-label="מפה עם קבוצות עסקאות לפי עיר"/>{error&&<p className="map-error" role="status">חלק מהמפה לא נטען. כל העסקאות עדיין זמינות בכרטיסים ובצ׳אט.</p>}</>;
+}

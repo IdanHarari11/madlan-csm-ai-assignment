@@ -1,3 +1,11 @@
+# Current decision — map with scoped conversation
+
+The user's chosen product is now an explorer: map and cards supply context, an explicit selection bounds chat, and deterministic tools compare or aggregate historical transactions. It supersedes the complaint-led primary workflow below. Exact property positions cannot be inferred from this CSV, so all records are grouped at sourced city points with explicit precision labels. No invented marker jitter, live geocoder, new credential or paid service was introduced. See MAP_EXPLORER.md for the complete scope and provenance.
+
+---
+
+## Prior product decisions (historical)
+
 # Submission product decision
 
 The primary user is a CSM investigating a reported discrepancy. The shipped public path is question/deal ID → source inspection and calculation → bounded finding → reviewed customer reply and reproducible internal handoff. The workflow is a hypothesis derived from the role, not validated customer research.

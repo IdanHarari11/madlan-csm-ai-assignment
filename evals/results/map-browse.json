@@ -1,0 +1,96 @@
+{
+  "model": "gpt-4.1-2025-04-14",
+  "generatedAt": "2026-10-26T16:23:32.549Z",
+  "total": 4,
+  "passed": 4,
+  "results": [
+    {
+      "message": "הצג דירות ארבעה חדרים בחולון עם חניה",
+      "expected": {
+        "message": "הצג דירות ארבעה חדרים בחולון עם חניה",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4,
+          "parking": true
+        },
+        "intent": "query"
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4,
+          "parking": true
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "pass": true,
+      "kind": "metric"
+    },
+    {
+      "message": "סנן את העסקאות בחיפה לאלו שאין בהן חניה",
+      "expected": {
+        "message": "סנן את העסקאות בחיפה לאלו שאין בהן חניה",
+        "filters": {
+          "city": "חיפה",
+          "parking": false
+        },
+        "intent": "query"
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "parking": false
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "pass": true,
+      "kind": "metric"
+    },
+    {
+      "message": "תראה את כל העסקאות במדגם בכל הערים",
+      "expected": {
+        "message": "תראה את כל העסקאות במדגם בכל הערים",
+        "filters": {},
+        "intent": "query"
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "pass": true,
+      "kind": "metric"
+    },
+    {
+      "message": "הצג דירות בחיפה במחיר עד שלושה מיליון שקלים",
+      "expected": {
+        "message": "הצג דירות בחיפה במחיר עד שלושה מיליון שקלים",
+        "intent": "unsupported"
+      },
+      "plan": {
+        "intent": "unsupported",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "pass": true,
+      "kind": "unsupported"
+    }
+  ]
+}

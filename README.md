@@ -1,3 +1,19 @@
+# Madlan — Map, Transactions and Scoped Chat
+
+Explore the historical transaction sample on an interactive map, open deal cards, select up to three transactions and ask the AI to investigate or compare that explicit selection. Without selection, chat covers the full dataset. Map/list filters and chat scope are clearly distinguished; numeric chat queries synchronize the displayed filters.
+
+**Location honesty:** the CSV has no coordinates or house numbers. All 520 unique deals are grouped at 18 attributed city points, never jittered into invented property locations. Every record is accessible in cards. This is not a map of available listings or exact building locations. City points come from GeoNames (CC BY); tiles from OpenStreetMap with visible attribution and graceful fallback.
+
+**Try:** click a city marker → open a deal → “שאלו על העסקה”; or select two cards and ask “השווה את המחיר למ״ר והמאפיינים שלהן”. The server enforces selection membership; the model cannot silently broaden it. Comparison preserves missing values and price exclusions and does not choose an authoritative conflicting price.
+
+See [map/scoped-chat architecture, provenance and validation](docs/MAP_EXPLORER.md), the [current guide](docs/CSM_GUIDE.md), [AI log](docs/AI_LOG.md) and [QA report](docs/QA_REPORT.md). Live app: https://madlan-csm-chat.vercel.app/ . Repository: https://github.com/IdanHarari11/madlan-csm-ai-assignment .
+
+This section supersedes the prior product positioning below; underlying data arithmetic, failure handling and deferred Jira scope remain unchanged. `NEXT_PUBLIC_MAP_TILE_URL` optionally changes the tile provider at build time; no additional secret is required. Do not bulk-download tiles. GeoNames attribution and the [OSM tile policy](https://operations.osmfoundation.org/policies/tiles/) are documented in MAP_EXPLORER.md.
+
+---
+
+## Prior investigation implementation and setup
+
 # Madlan — Customer Data Investigation
 
 A public Hebrew/RTL chat for a Customer Success Manager investigating “this number looks wrong.” Give it a transaction ID or a reproducible metric question. It inspects the supplied CSV, shows source records and calculations, and provides a proposed customer reply and an internal investigation summary.

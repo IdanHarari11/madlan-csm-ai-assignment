@@ -1,3 +1,19 @@
+# Map explorer release — current scope
+
+The primary interface is now a map/card explorer with a selection-bound chat. Earlier complaint-led release sections below are historical. See MAP_EXPLORER.md for exact behavior, geographic precision and provider attribution.
+
+- 124 code/service/contract/rendering tests passed locally. New tests cover all 18 city points, invalid selections, selected-only aggregates, cross-scope model IDs, conflict exclusions and comparison-filter handling.
+- 155 independent CSV value/cohort/evidence checks passed. The original CSV is unchanged.
+- Scoped live model corpus: **24/24 passed** (12 cases, two repeats); current scores and source hashes are in `evals/results/map-scope.json`. The earlier passing pre-filter-guard report and a 22/24 aggregate-classification failure are retained separately. The latter confused an average with side-by-side comparison; the prompt repair was evaluated again on the frozen current source.
+- Current global planner regression passed 36/36 and natural-language browsing passed 4/4; reports are `map-global-regression.json` and `map-browse.json`.
+- TypeScript and production build passed; hosting also runs Postgres checks and CI runs the source oracle. Exact deployment results are in the delivery artifact outside the source tree.
+- Geographic points are city-level GeoNames records, not geocoded property addresses. No precise positioning or per-deal geographic accuracy is claimed.
+- Saved browser permission/managed policy still blocks interactive/visual QA. SSR tests and build success are not browser verification. Modal focus and clipboard behavior are implemented but not interactively verified.
+
+---
+
+## Earlier release evidence
+
 # Submission release — customer investigation
 
 This is the current release record; earlier audit sections below are historical.

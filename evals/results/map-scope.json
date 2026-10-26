@@ -1,0 +1,351 @@
+{
+  "generatedAt": "2026-10-26T16:19:31.086Z",
+  "asOf": "2026-10-26",
+  "model": "gpt-4.1-2025-04-14",
+  "hashes": {
+    "lib/scoped-investigation.ts": "96547ace461c2228cd978a8f15d406fc10fadb9754e8cc63abcf05bb65e6eaa5",
+    "lib/contracts.ts": "12db62e3de570dc6ba21aaeeb73edbec09c9ce9f5f72a041ea835195b12839dc",
+    "lib/domain.ts": "4c73b7a932ed63428b6fdad7a885dda8010d5729c0e71028ca9cb141491d47c8"
+  },
+  "total": 24,
+  "passed": 24,
+  "gatePassed": true,
+  "results": [
+    {
+      "id": "compare-two",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "compare-ratio",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "compare-amenity",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "single-detail",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "deal",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": "D100027",
+        "clarification": null
+      },
+      "kind": "deal"
+    },
+    {
+      "id": "count-scope",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric"
+    },
+    {
+      "id": "mean-scope",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "mean_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric"
+    },
+    {
+      "id": "conflicting-comparison",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "one-comparable",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "clarify",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": "כדי לבצע השוואה יש לבחור לפחות שני נכסים. אנא בחר עוד נכס אחד לפחות."
+      },
+      "kind": "clarify"
+    },
+    {
+      "id": "loss-refusal",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": "לא ניתן לחשב הפסד ללקוחות או לספק המלצות או תחזיות פיננסיות. ניתן לבדוק נתונים של העסקה או להשוות לעסקאות נוספות."
+      },
+      "kind": "unsupported"
+    },
+    {
+      "id": "valuation-refusal",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "unsupported"
+    },
+    {
+      "id": "outside-selection",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "clarify",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": "לא ניתן להתעלם מהבחירה הנוכחית. כדי לחשב נתונים עבור כל העסקאות, נא לנקות את הבחירה בממשק ואז לשלוח את הבקשה מחדש."
+      },
+      "kind": "clarify"
+    },
+    {
+      "id": "selected-quality",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "quality",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "quality"
+    },
+    {
+      "id": "compare-two",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "compare-ratio",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "compare-amenity",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "single-detail",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "deal",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": "D100027",
+        "clarification": null
+      },
+      "kind": "deal"
+    },
+    {
+      "id": "count-scope",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric"
+    },
+    {
+      "id": "mean-scope",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {},
+        "metric": "mean_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric"
+    },
+    {
+      "id": "conflicting-comparison",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "compare",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "comparison"
+    },
+    {
+      "id": "one-comparable",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "clarify",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": "יש רק עסקה אחת נבחרה. כדי לבצע השוואה, יש לבחור לפחות שתי עסקאות."
+      },
+      "kind": "clarify"
+    },
+    {
+      "id": "loss-refusal",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": "אין אפשרות לחשב או לדווח על הפסדים ללקוחות או השפעות השקעה מתוך המידע הזמין. ניתן להציג פרטי העסקה עצמה או לבצע ניתוח לפי אחד מהמדדים הנתמכים בלבד."
+      },
+      "kind": "unsupported"
+    },
+    {
+      "id": "valuation-refusal",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {},
+        "metric": "median_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "unsupported"
+    },
+    {
+      "id": "outside-selection",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "clarify",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": "לא ניתן לחשב נתונים לכל הערים כשיש בחירה של עסקה אחת בלבד. נא לנקות את הבחירה כדי להרחיב את החיפוש."
+      },
+      "kind": "clarify"
+    },
+    {
+      "id": "selected-quality",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "quality",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "quality"
+    }
+  ]
+}

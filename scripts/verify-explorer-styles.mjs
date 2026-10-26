@@ -1,0 +1,18 @@
+import {readFileSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
+import assert from 'node:assert/strict';
+const context={globalThis:{}};
+runInNewContext(readFileSync('.next/server/app/page_client-reference-manifest.js','utf8'),context);
+const manifest=context.globalThis.__RSC_MANIFEST['/page'];
+assert.ok(manifest,'Missing home-page client manifest');
+const files=manifest.entryCSSFiles;
+const layout=new Set((files['[project]/app/layout']??[]).map(f=>f.path));
+const page=(files['[project]/app/page']??[]).map(f=>f.path);
+const dedicated=page.filter(path=>!layout.has(path));
+assert.ok(dedicated.length,'Explorer CSS must be linked by the page, independently of a cached root layout');
+const css=dedicated.map(path=>readFileSync('.next/'+path,'utf8')).join('\n');
+for(const selector of ['.explorer-workspace','.explorer-map','.deal-card','.scope-panel','.embedded-chat','.leaflet-host'])assert.ok(css.includes(selector),'Published page CSS missing '+selector);
+assert.match(css,/\.explorer-workspace\{[^}]*display:grid/,'Desktop map/chat grid missing');
+assert.match(css,/\.explorer-map\{[^}]*height:330px/,'Map has no desktop height');
+assert.match(css,/\.embedded-chat \.composer-area\{[^}]*position:static/,'Old fixed chat composer would cover explorer');
+console.log(JSON.stringify({check:'explorer-page-styles',status:'passed',dedicatedPageCss:dedicated}));

@@ -23,7 +23,8 @@
     "test:postgres": "node --import tsx --test tests/postgres.integration.ts",
     "verify:postgres": "node scripts/verify-hosted-postgres.mjs",
     "eval:chat": "node --import tsx evals/chat-audit.ts",
-    "eval:chat:live": "node --import tsx evals/chat-audit.ts --live"
+    "eval:chat:live": "node --import tsx evals/chat-audit.ts --live",
+    "verify:styles": "node scripts/verify-explorer-styles.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.96",

@@ -1,6 +1,6 @@
 {
   "framework": "nextjs",
-  "buildCommand": "pnpm db:migrate && pnpm verify:postgres && pnpm build",
+  "buildCommand": "pnpm db:migrate && pnpm verify:postgres && pnpm build && pnpm verify:styles",
   "installCommand": "pnpm install --frozen-lockfile",
   "regions": [
     "fra1"

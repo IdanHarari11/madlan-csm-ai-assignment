@@ -60,7 +60,7 @@ export default function Desk(){
       {t.response&&<ChatAnswer answer={t.response} question={t.question} turnId={t.id} taskEnabled={status?.jiraReady??false} onTask={context=>{if(!taskBusy)setTask(context);}}/>}
       {t.error&&<div className="chat-error"><p role="alert">{t.error}</p>{t.error.includes('בוטלה')?<button className="text-button" onClick={()=>setQuestion(t.question)}>עריכת השאלה</button>:<button className="text-button" disabled={Boolean(pendingId)||taskBusy} onClick={()=>setQuestion(t.question)}><RotateCcw size={13}/>החזרת השאלה לעריכה</button>}{!status?.modelReady&&<p className="small muted">אפשר לנסות דוגמה ישירה: <button className="text-button" disabled={Boolean(pendingId)||taskBusy} onClick={()=>send(EXAMPLES[0].label,'deal')}>בדיקת עסקה מהקובץ</button></p>}</div>}
       {pendingId===t.id&&<p className="thinking"><LoaderCircle size={15} className="spin"/>בודק את הנתונים…</p>}
-      {task?.turnId===t.id&&<TaskCard key={task.turnId+task.evidenceIds.join(',')} context={task} status={status} onClose={()=>setTask(null)} onBusyChange={setTaskBusy}/>}
+      {task?.turnId===t.id&&status?.jiraReady&&<TaskCard key={task.turnId+task.evidenceIds.join(',')} context={task} status={status} onClose={()=>setTask(null)} onBusyChange={setTaskBusy}/>}
      </div></div>
     </article>)}
    </div><div ref={bottom}/>

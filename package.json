@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=22.13.0"
+    "node": "22.x"
   },
   "scripts": {
     "install:ci": "node scripts/install-dependencies.mjs",
-    "dev": "node scripts/run-framework.mjs dev",
-    "build": "node scripts/run-framework.mjs build",
-    "start": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
+    "dev": "next dev --hostname 127.0.0.1 --port 5173",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "typecheck": "tsc --noEmit",
@@ -17,12 +17,17 @@
     "test:db": "python3 tests/db_guards.py",
     "eval": "node --import tsx evals/run.ts",
     "eval:live": "node --import tsx evals/live.ts",
-    "eval:tasks": "node --import tsx evals/tasks.ts"
+    "eval:tasks": "node --import tsx evals/tasks.ts",
+    "build:sites": "node scripts/run-framework.mjs build",
+    "db:migrate": "node --import tsx scripts/migrate-postgres.ts",
+    "test:postgres": "node --import tsx --test tests/postgres.integration.ts",
+    "verify:postgres": "node scripts/verify-hosted-postgres.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.96",
     "@base-ui/react": "^1.7.0",
     "@hookform/resolvers": "^5.7.1",
+    "@neondatabase/auth": "0.6.0-beta",
     "@shadcn/react": "^0.3.0",
     "ai": "^7.0.143",
     "class-variance-authority": "0.7.1",
@@ -35,6 +40,7 @@
     "lucide-react": "^1.31.0",
     "next": "16.3.4",
     "next-themes": "^0.4.6",
+    "postgres": "^3.4.9",
     "radix-ui": "^1.6.7",
     "react": "19.2.6",
     "react-day-picker": "^10.0.1",

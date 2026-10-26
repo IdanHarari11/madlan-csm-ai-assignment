@@ -30,7 +30,7 @@ export async function PATCH(request:Request){return endpoint(async(traceId)=>{
  const old=JSON.parse(draft.payload) as DraftPayload;validateEvidence(b.content,old.content.evidenceIds);
  const updated:DraftPayload={...old,content:b.content,impact:b.impact,priority:prioritize(b.impact,today())};
  const fp=await fingerprint(updated);
- const row=await store.db.prepare('UPDATE drafts SET payload=?,fingerprint=?,revision=revision+1 WHERE id=? AND owner=? AND revision=? AND NOT EXISTS (SELECT 1 FROM operations WHERE draft_id=drafts.id) RETURNING revision').bind(JSON.stringify(updated),fp,draft.id,user.userId,b.revision).first();
+ const row=await store.editDraft(draft.id,user.userId,b.revision,JSON.stringify(updated),fp);
  if(!row)throw new AppError('DRAFT_LOCKED',409,'הטיוטה כבר נשלחה או נמצאת בתהליך יצירה.');
  await store.log(traceId,user.userId,'draft_edited',draft.id);
  return {draftId:draft.id,revision:(row as {revision:number}).revision,expiresAt:draft.expires_at,...updated};

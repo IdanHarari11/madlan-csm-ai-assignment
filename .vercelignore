@@ -1,0 +1,12 @@
+.dev.vars*
+.env*
+.sites-runtime
+.wrangler
+.git
+node_modules
+.next
+dist
+.vinext
+work
+outputs
+MADLAN_CODEX_HANDOFF.md

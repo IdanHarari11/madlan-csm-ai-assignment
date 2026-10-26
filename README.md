@@ -2,11 +2,11 @@
 
 A Hebrew/RTL investigation desk for Customer Success: ask a question about the supplied transaction CSV, inspect deterministic calculations and source records, and prepare an evidence-backed Jira proposal with a policy-based priority. A permitted CSM must review and explicitly confirm every write.
 
-**Release state:** local live AI is validated on pinned `gpt-4.1-2025-04-14`: 108/108 planner checks (36 cases × 3) and 10/10 task structure/grounding checks. The public Site still needs its OpenAI runtime secret and redeployment; live Jira and authenticated end-to-end checks remain incomplete. See `docs/QA_REPORT.md` before submission.
+**Release state:** migrating to Vercel with Next.js, dedicated Neon Postgres and Neon Auth. Local AI is validated on pinned `gpt-4.1-2025-04-14` (108/108 planner checks and 10/10 task structure/evidence checks). Jira writes remain disabled pending dedicated service credentials. See `docs/VERCEL_SETUP.md` and `docs/QA_REPORT.md`.
 
 ## Quick start
 
-Node 22.13+ and pnpm. Install using the included macOS/Linux environment-aware helper, then run the checks:
+Node 22.x and pnpm. Install using the included macOS/Linux environment-aware helper, then run the checks:
 
 ```sh
 npm run install:ci
@@ -17,7 +17,7 @@ pnpm eval
 pnpm dev
 ```
 
-For this Sites checkout use the Sites install/build helpers specified by its skill; the authored source is ordinary TypeScript/React and the hosting adapters are explicit.
+Runtime values for CLI checks can be loaded from ignored `.dev.vars` with Node’s `--env-file` option; do not commit local secrets. Next.js development additionally needs the PostgreSQL and Neon Auth configuration described in the setup guide.
 
 The CSV is unchanged at `data/deals.csv`; `data/deals.json` is its lossless parsed representation. The domain accepts an explicit as-of date. No external data enrichment, vector DB or Redis is required for 530 input rows.
 
@@ -28,7 +28,7 @@ The CSV is unchanged at `data/deals.csv`; `data/deals.json` is its lossless pars
 - `lib/ai.ts`: bounded structured planning and task generation through the installed AI SDK; 20-second timeout, zero retries, typed errors. Supports AI Gateway or OpenAI Responses provider.
 - `lib/investigation.ts`: tool dispatcher and factual response construction. All numerical answers come from code; the model never writes the numeric answer.
 - `lib/task-service.ts`: ownership, draft expiry, idempotency, duplicate gate, external-call state transitions.
-- `lib/store.ts`, `db/schema.ts`, `drizzle/`: persistent D1 storage and atomic SQL quota/uniqueness guards.
+- `lib/postgres-store.ts`, `postgres/`: active persistent Postgres storage and atomic quota/uniqueness guards. `lib/store.ts` retains shared contracts and the legacy D1 implementation.
 - `lib/jira.ts`: tenant-scoped Jira Cloud v3 adapter, ADF descriptions and conservative unknown-outcome handling.
 - `app/desk.tsx`, `app/components/`: a single RTL chat, on-demand source inspection and inline guided task confirmation.
 - `tests/`, `evals/`: deterministic tests, actual SQL concurrency tests, independent Python golden oracle, live-model corpora and gates.
@@ -51,9 +51,11 @@ Live model ID is configured, not guessed. Runtime secrets are never committed. T
 
 ## Hosting
 
-This version targets Sites (Vinext on Cloudflare Workers with D1). Identity headers are trusted ONLY behind the Sites dispatch boundary. Hosting directly elsewhere without replacing identity and persistence adapters is unsafe. Do not expose the raw worker with client-supplied identity headers. Hosted migrations run before publication; local preview migrations must be applied explicitly as described in setup.
+The active target is Vercel: native Next.js App Router functions, Neon Postgres for durable drafts/budgets/operations and Neon Auth for verified-email sessions. Public visitors may investigate data; only verified users in the server-side `CSM_EMAILS` allowlist may prepare or approve drafts. Client-supplied identity headers are never trusted.
 
-No automatic Jira reconciliation is included. A timeout after an external POST is not treated as proof of failure: retain the operation and investigate by its label before retrying. External search is eventually consistent, so local atomic deduplication is the primary defense against this app's concurrent writes.
+`lib/postgres-store.ts` implements the store adapter. PostgreSQL triggers serialize Jira reservations with a transaction advisory lock and bind each attempt to its owner, fingerprint and reviewed revision. Edits acquire the same lock. Every production build applies the idempotent schema and exercises concurrent guards in a unique temporary test schema. The prior Cloudflare/D1 adapter and migrations remain historical/reference code; their SQL tests do not substitute for testing the active PostgreSQL adapter.
+
+Production secrets are stored as sensitive Vercel environment variables, outside source and browser bundles. Read-only public access is independent from CSM authorization. No automatic Jira reconciliation is included; an unknown external POST is never blindly retried.
 
 ## Reference documentation verified during implementation
 

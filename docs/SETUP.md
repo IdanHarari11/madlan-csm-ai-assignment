@@ -1,3 +1,5 @@
+> Current target (2026-10-26): Vercel + Neon Postgres + Neon Auth. Use [VERCEL_SETUP.md](VERCEL_SETUP.md) for the active deployment. The Sites/D1 instructions below describe the original hosting and are retained as history. Do not use the Sites identity adapter on Vercel.
+
 # Runtime setup and completion checklist
 
 ## Model

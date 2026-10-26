@@ -63,3 +63,18 @@ This section supersedes the earlier local-model blocked status; hosted and Jira 
 - GitHub source delivery succeeded at commit `5d8f0015fee1e35d690e2a3bdf4648beb95783e9`. The full Linux GitHub Actions workflow passed: https://github.com/IdanHarari11/madlan-csm-ai-assignment/actions/runs/40224274936 (installation, typecheck, all deterministic checks and production build).
 
 The project is not ready for final submission until hosted AI, dedicated Jira, independent task-content review and the authenticated end-to-end workflow are verified.
+
+
+## Vercel migration — 2026-10-26
+
+The active deployment is now https://madlan-csm-chat.vercel.app/ on native Next.js, dedicated Neon PostgreSQL and Neon Auth. This supersedes the previous hosted-model blocked status for Vercel; the old Sites publication was not changed.
+
+- Vercel production build and database migration succeeded.
+- The active PostgreSQL adapter passed 6 integration scenarios plus their parent test (7/7). Tests use a unique temporary schema and real pooled connections. Forty parallel owners received exactly 25 global reservations; twenty duplicate reservations produced one winner; budget races allowed exactly 30. Owner/revision checks, edit-after-reservation, unknown states and quotas for failed attempts passed.
+- Local migration checks: typecheck, 100 code/service tests, 11 historical SQLite tests and 107 deterministic eval checks passed. SQLite is reference coverage, not the active persistence layer.
+- Production `/api/status` returned 200 with `modelReady=true`, `jiraReady=false`, `user=null`, `canCreate=false`.
+- An actual public AI request for four-room apartments in Holon returned 38,260 NIS/sqm with the three expected evidence IDs. A rental-yield request was rejected as unsupported and invoked no data tools.
+- An issue-creation request with forged Sites user headers returned 401 AUTH_REQUIRED. A cross-origin chat request returned 403 ORIGIN_DENIED.
+- Home, login page and the Neon Auth session endpoint responded successfully; anonymous session was null. No login email was sent by the agent. Completing verified-email sign-in and exercising an authenticated draft requires the user's emailed code and remains unverified.
+- Browser UI QA was not performed: browser permission for the Vercel origin was declined. HTTP and API evidence above was collected before that denial; no browser workaround was attempted.
+- OpenAI, database and session secrets are configured as sensitive Vercel values for production and preview. Dedicated Jira credentials and issue type remain missing; JIRA_ENABLED=false and no real issue was created.

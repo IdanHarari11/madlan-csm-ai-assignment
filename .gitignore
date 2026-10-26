@@ -43,3 +43,7 @@ yarn-error.log*
 
 # OS metadata
 .DS_Store
+
+# Original local transfer notes
+/MADLAN_CODEX_HANDOFF.md
+/.vercel/

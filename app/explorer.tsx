@@ -19,7 +19,7 @@ export default function Explorer({deals,asOf}:{deals:Deal[];asOf:string}){
  function toggle(id:string){setNotice('');if(selectedIds.includes(id))setSelected(selectedIds.filter(x=>x!==id));else if(selectedIds.length<3)setSelected([...selectedIds,id]);else setNotice('אפשר לבחור עד שלוש עסקאות. הסירו עסקה כדי לבחור אחרת.');}
  function focus(id:string){setSelected([id]);setTab('chat');}
  return <div className="explorer">
-  <header className="explorer-header"><a href="/" className="explorer-brand"><span className="explorer-logo">מ</span><span>מבט על העסקאות<small>מדגם מדלן · חקירה עם AI</small></span></a><div className="header-meta">{deals.length} עסקאות · <span>היסטוריות, לא מודעות למכירה</span></div><a href="/guide">איך משתמשים?</a></header>
+  <header className="explorer-header"><a href="/" className="explorer-brand"><span className="explorer-logo">מ</span><span>מבט על העסקאות<small>מדגם מדלן · חקירה עם AI</small></span></a><a href="/guide">איך משתמשים?</a></header>
   <nav className="mobile-tabs" aria-label="תצוגה">{[['map','מפה ועסקאות'],['chat','צ׳אט ובחירה']].map(([id,label])=><button aria-pressed={tab===id} key={id} onClick={()=>setTab(id)}>{label}</button>)}</nav>
   <div className="explorer-workspace">
    <section className={'explorer-browse '+(tab==='map'?'mobile-active':'')} aria-label="מפה ועסקאות">

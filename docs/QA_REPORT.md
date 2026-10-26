@@ -78,3 +78,10 @@ The active deployment is now https://madlan-csm-chat.vercel.app/ on native Next.
 - Home, login page and the Neon Auth session endpoint responded successfully; anonymous session was null. No login email was sent by the agent. Completing verified-email sign-in and exercising an authenticated draft requires the user's emailed code and remains unverified.
 - Browser UI QA was not performed: browser permission for the Vercel origin was declined. HTTP and API evidence above was collected before that denial; no browser workaround was attempted.
 - OpenAI, database and session secrets are configured as sensitive Vercel values for production and preview. Dedicated Jira credentials and issue type remain missing; JIRA_ENABLED=false and no real issue was created.
+
+
+### Repeat-run failure caught and repaired
+
+The initial database test run passed but did not prove fixture isolation. A repeat deployment correctly failed: the original test's connection-level search-path assumption let synthetic fixtures use public tables. The release gate prevented promotion of that candidate. The adapter now qualifies every table with its schema, tests apply and verify DDL search path inside a transaction, and migration/test commands use `DATABASE_URL_UNPOOLED`. Database trigger functions are explicitly bound to their own schema. A narrow repair SQL file removes only the exact synthetic fixture payload/fingerprint patterns and the fixed test-only budget key; production DraftPayloads and SHA-256 fingerprints cannot match these patterns.
+
+The repaired production deployment passed all 7 Postgres tests (6 scenarios plus parent), with no failures. A subsequent GitHub deployment reruns them to check repeatability. This is recorded as a genuine migration error and correction, not hidden by the earlier green run.

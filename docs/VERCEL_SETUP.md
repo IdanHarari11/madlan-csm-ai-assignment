@@ -18,7 +18,8 @@ All provider/database/session secrets live only in Vercel server environment set
 | --- | --- |
 | `OPENAI_API_KEY` | Dedicated project key created through the secure flow; expires after the selected 30 days |
 | `AI_MODEL` | Pinned `gpt-4.1-2025-04-14` |
-| `DATABASE_URL` | Neon pooled PostgreSQL connection |
+| `DATABASE_URL` | Neon pooled PostgreSQL connection for application traffic |
+| `DATABASE_URL_UNPOOLED` | Direct connection for migrations and isolated integration tests |
 | `NEON_AUTH_BASE_URL` | Managed auth endpoint supplied by Neon |
 | `NEON_AUTH_COOKIE_SECRET` | Random, server-only session-cookie signing secret |
 | `CSM_EMAILS` | Explicit allowed verified-email addresses |
@@ -31,7 +32,7 @@ No value is prefixed `NEXT_PUBLIC_`. Additional database variable names injected
 
 ## Data and transactions
 
-`pnpm db:migrate` applies `postgres/001_initial.sql` inside a transaction with a migration advisory lock. `pnpm verify:postgres` runs the active adapter against a unique temporary schema in the same dedicated database and drops only that test schema afterward. It verifies 40 competing global reservations, concurrent duplicates, revision/owner binding, edit locks, unknown outcomes, failed-attempt quotas and atomic model budgets. No Jira service is contacted by these checks.
+`pnpm db:migrate` applies the Postgres SQL inside a transaction over the direct connection with a migration advisory lock. `pnpm verify:postgres` runs the active adapter against a unique temporary schema in the same dedicated database and drops only that test schema afterward. All adapter table references include their schema explicitly; DDL verifies its isolated schema inside a transaction before creating fixtures. Production trigger functions explicitly use the public schema. This avoids session search-path assumptions under connection pooling. It verifies 40 competing global reservations, concurrent duplicates, revision/owner binding, edit locks, unknown outcomes, failed-attempt quotas and atomic model budgets. No Jira service is contacted by these checks.
 
 Vercel's build runs both commands before `pnpm build`. A failed database check prevents a new deployment. Production HTTP handlers never create schemas. Operations stay durable across serverless instances and deployments. Model budgets retain the original persistent caps. App metadata and transaction IDs are not a substitute for row-level ownership checks.
 

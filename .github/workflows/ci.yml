@@ -17,4 +17,5 @@ jobs:
       - run: pnpm test
       - run: pnpm test:db
       - run: pnpm eval
+      - run: pnpm eval:chat
       - run: pnpm build

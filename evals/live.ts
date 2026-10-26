@@ -1,12 +1,12 @@
 import { writeFileSync,mkdirSync } from 'node:fs';
 import { generator,planQuery,modelReady } from '../lib/ai';
-import { overview,dataset,today } from '../lib/data';
+import { plannerCatalogue,dataset,today } from '../lib/data';
 import { executePlan } from '../lib/investigation';
 import { cases,grade } from './cases';
 const config={AI_GATEWAY_API_KEY:process.env.AI_GATEWAY_API_KEY,OPENAI_API_KEY:process.env.OPENAI_API_KEY,AI_MODEL:process.env.AI_MODEL};
 if(!modelReady(config)){console.error('BLOCKED: supply AI_MODEL and AI_GATEWAY_API_KEY or OPENAI_API_KEY. No live model calls were made.');process.exitCode=2;}else{
  const limit=Math.min(Math.max(Number(process.env.EVAL_LIMIT??cases.length),1),cases.length),repeats=Math.min(Math.max(Number(process.env.EVAL_REPEATS??1),1),3);
- const o=overview(),catalogue={cities:o.cities,propertyTypes:o.propertyTypes,asOf:today()},gen=generator(config);
+ const catalogue=plannerCatalogue(),gen=generator(config);
  const results=[];
  for(let repeat=0;repeat<repeats;repeat++)for(const c of cases.slice(0,limit)){
   const start=Date.now();try{const p=await planQuery(gen,c.message,c.history??[],catalogue),g=grade(p,c),answer=executePlan(dataset(),p,today());results.push({id:c.id,category:c.category,repeat,...g,elapsedMs:Date.now()-start,plan:p,answerKind:answer.kind});}

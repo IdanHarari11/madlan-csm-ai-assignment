@@ -1,3 +1,4 @@
+import {cityName} from '../lib/domain';
 // Human-authored expectations. These are not model-generated graders.
 export type EvalCase={id:string;category:string;message:string;history?:{role:'user'|'assistant';content:string}[];expect:{intent:string[];metric?:string;city?:string;rooms?:number;dealId?:string;propertyType?:string;parking?:boolean;dateFrom?:string;dateTo?:string}};
 export const cases:EvalCase[]=[
@@ -43,7 +44,7 @@ export function grade(plan:{intent:string;filters:Record<string,unknown>;metric:
  if(!e.intent.includes(plan.intent))failures.push('intent');
  // Non-query alternatives such as clarify must not fabricate partial filters or a numeric answer.
  if(plan.intent==='query'){
- for(const k of ['city','propertyType','parking','dateFrom','dateTo'] as const)if(e[k]!==undefined&&plan.filters[k]!==e[k])failures.push(k);
+ for(const k of ['city','propertyType','parking','dateFrom','dateTo'] as const)if(e[k]!==undefined&&(k==='city'?typeof plan.filters.city!=='string'||cityName(plan.filters.city)!==cityName(e.city!):plan.filters[k]!==e[k]))failures.push(k);
  if(e.metric&&plan.metric!==e.metric)failures.push('metric');
  if(e.rooms!==undefined&&(plan.filters.roomsMin!==e.rooms||plan.filters.roomsMax!==e.rooms))failures.push('rooms');
  const permitted=new Set(Object.keys(e).filter(k=>['city','propertyType','parking','dateFrom','dateTo'].includes(k)));if(e.rooms!==undefined){permitted.add('roomsMin');permitted.add('roomsMax');}

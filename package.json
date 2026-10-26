@@ -21,7 +21,9 @@
     "build:sites": "node scripts/run-framework.mjs build",
     "db:migrate": "node --import tsx scripts/migrate-postgres.ts",
     "test:postgres": "node --import tsx --test tests/postgres.integration.ts",
-    "verify:postgres": "node scripts/verify-hosted-postgres.mjs"
+    "verify:postgres": "node scripts/verify-hosted-postgres.mjs",
+    "eval:chat": "node --import tsx evals/chat-audit.ts",
+    "eval:chat:live": "node --import tsx evals/chat-audit.ts --live"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.96",

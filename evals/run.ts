@@ -21,5 +21,5 @@ scenario('unknowns-not-urgent','priority safety',()=>assert.equal(prioritize({pr
 scenario('four-conflicts','real-data audit',()=>assert.equal(checkDataQuality(ds).conflictingDeals,4));
 scenario('task-invalid-schema','structured output',()=>assert.equal(taskContentSchema.safeParse({title:'urgent',priority:'P0'}).success,false));
 scenario('no-evidence-no-bug','task grounding',()=>{const p={title:'בדיקת בעיה חשודה',description:'נדרש בירור עם נתוני מקור לפני החלטה.',category:'suspected_bug' as const,expectedBehavior:'יש לברר מהי ההתנהגות הצפויה.',acceptanceCriteria:['בדיקת הנתונים הושלמה מול המקור.'],evidenceIds:[],unknowns:[]};assert.throws(()=>validateEvidence(p,[]));});
-const report={generatedAt:new Date().toISOString(),mode:'deterministic',passed:results.filter(r=>r.pass).length,total:results.length,liveModelEvaluation:'NOT_RUN_NO_CREDENTIALS',results};
+const report={generatedAt:new Date().toISOString(),mode:'deterministic',passed:results.filter(r=>r.pass).length,total:results.length,liveModelEvaluation:'SEPARATE_RUN_REQUIRED',results};
 mkdirSync('evals/results',{recursive:true});writeFileSync('evals/results/deterministic.json',JSON.stringify(report,null,2));console.log(JSON.stringify({passed:report.passed,total:report.total,failed:results.filter(r=>!r.pass)},null,2));if(report.passed!==report.total)process.exitCode=1;

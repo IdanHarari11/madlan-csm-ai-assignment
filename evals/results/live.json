@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-25T19:03:02.794Z",
+  "generatedAt": "2026-10-26T15:03:53.159Z",
   "model": "gpt-4.1-2025-04-14",
   "mode": "live-model",
-  "total": 108,
-  "expectedTotal": 108,
-  "passed": 108,
+  "total": 36,
+  "expectedTotal": 36,
+  "passed": 36,
   "criticalFailures": 0,
   "gatePassed": true,
   "results": [
@@ -14,7 +14,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1367,
+      "elapsedMs": 1331,
       "plan": {
         "intent": "query",
         "filters": {
@@ -35,7 +35,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1220,
+      "elapsedMs": 1264,
       "plan": {
         "intent": "query",
         "filters": {
@@ -53,7 +53,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1177,
+      "elapsedMs": 1488,
       "plan": {
         "intent": "query",
         "filters": {
@@ -71,7 +71,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1054,
+      "elapsedMs": 1131,
       "plan": {
         "intent": "query",
         "filters": {},
@@ -87,7 +87,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1218,
+      "elapsedMs": 1251,
       "plan": {
         "intent": "query",
         "filters": {
@@ -105,7 +105,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1187,
+      "elapsedMs": 1550,
       "plan": {
         "intent": "query",
         "filters": {
@@ -123,7 +123,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1086,
+      "elapsedMs": 1525,
       "plan": {
         "intent": "query",
         "filters": {
@@ -141,7 +141,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1240,
+      "elapsedMs": 1414,
       "plan": {
         "intent": "query",
         "filters": {
@@ -159,7 +159,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1099,
+      "elapsedMs": 1345,
       "plan": {
         "intent": "query",
         "filters": {
@@ -180,7 +180,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1104,
+      "elapsedMs": 1426,
       "plan": {
         "intent": "query",
         "filters": {
@@ -199,7 +199,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1257,
+      "elapsedMs": 1345,
       "plan": {
         "intent": "query",
         "filters": {
@@ -219,7 +219,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1152,
+      "elapsedMs": 1742,
       "plan": {
         "intent": "query",
         "filters": {
@@ -239,13 +239,13 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1189,
+      "elapsedMs": 1591,
       "plan": {
         "intent": "clarify",
         "filters": {},
-        "metric": "median_price",
+        "metric": "count",
         "dealId": null,
-        "clarification": "אילת אינה קיימת בקטלוג. האם תרצה לבחור עיר מהרשימה או לבדוק עיר אחרת?"
+        "clarification": "אילת אינה קיימת בקטלוג. האם יש עיר אחרת שתרצה לשאול עליה?"
       },
       "answerKind": "clarify"
     },
@@ -255,7 +255,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 968,
+      "elapsedMs": 1479,
       "plan": {
         "intent": "deal",
         "filters": {},
@@ -271,7 +271,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1048,
+      "elapsedMs": 1506,
       "plan": {
         "intent": "deal",
         "filters": {},
@@ -287,7 +287,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1052,
+      "elapsedMs": 1295,
       "plan": {
         "intent": "quality",
         "filters": {},
@@ -303,13 +303,13 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1399,
+      "elapsedMs": 1613,
       "plan": {
         "intent": "clarify",
         "filters": {
           "propertyType": "דירה"
         },
-        "metric": "count",
+        "metric": "median_price",
         "dealId": null,
         "clarification": "באיזו עיר תרצה לדעת את מחירי הדירות?"
       },
@@ -321,13 +321,13 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1225,
+      "elapsedMs": 2042,
       "plan": {
         "intent": "clarify",
         "filters": {},
         "metric": "count",
         "dealId": null,
-        "clarification": "לא צוין איזה מספר לבדוק. באיזה מספר מדובר?"
+        "clarification": "על איזה מספר תרצה לבדוק את איכות הנתונים?"
       },
       "answerKind": "clarify"
     },
@@ -337,7 +337,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1685,
+      "elapsedMs": 1713,
       "plan": {
         "intent": "clarify",
         "filters": {
@@ -346,7 +346,7 @@
         },
         "metric": "count",
         "dealId": null,
-        "clarification": "מה הכוונה ב'יקרות'? האם תרצה לראות את המחיר הממוצע, החציון, או לסנן על פי מחיר מינימלי מסוים?"
+        "clarification": "מה הכוונה ב\"דירות יקרות\"? נא לציין חציון, ממוצע או קריטריון מחיר מסוים."
       },
       "answerKind": "clarify"
     },
@@ -356,7 +356,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1064,
+      "elapsedMs": 1593,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -372,7 +372,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1118,
+      "elapsedMs": 1677,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -388,7 +388,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1081,
+      "elapsedMs": 1408,
       "plan": {
         "intent": "unsupported",
         "filters": {
@@ -407,7 +407,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1042,
+      "elapsedMs": 1681,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -423,7 +423,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1377,
+      "elapsedMs": 1220,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -439,7 +439,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1102,
+      "elapsedMs": 1371,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -455,7 +455,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1152,
+      "elapsedMs": 1337,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -471,7 +471,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1060,
+      "elapsedMs": 1328,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -487,7 +487,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1568,
+      "elapsedMs": 1425,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -503,7 +503,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1285,
+      "elapsedMs": 1720,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -519,7 +519,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1271,
+      "elapsedMs": 1276,
       "plan": {
         "intent": "unsupported",
         "filters": {},
@@ -535,7 +535,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1208,
+      "elapsedMs": 1363,
       "plan": {
         "intent": "query",
         "filters": {
@@ -553,7 +553,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 991,
+      "elapsedMs": 2034,
       "plan": {
         "intent": "query",
         "filters": {
@@ -574,13 +574,13 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1633,
+      "elapsedMs": 1556,
       "plan": {
         "intent": "clarify",
         "filters": {},
         "metric": "count",
         "dealId": null,
-        "clarification": "על איזו עיר או שכונה אתה שואל? בבקשה ציין מיקום או הקשר לשאלה הקודמת."
+        "clarification": "לגבי איזה עיר או שכונה תרצה לשאול?"
       },
       "answerKind": "clarify"
     },
@@ -590,7 +590,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1025,
+      "elapsedMs": 1442,
       "plan": {
         "intent": "query",
         "filters": {
@@ -611,7 +611,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1140,
+      "elapsedMs": 2319,
       "plan": {
         "intent": "query",
         "filters": {
@@ -630,1275 +630,7 @@
       "repeat": 0,
       "pass": true,
       "failures": [],
-      "elapsedMs": 1115,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {
-          "city": "חולון"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "he-median",
-      "category": "numeric intent",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1376,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה",
-          "roomsMin": 4,
-          "roomsMax": 4
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "he-mean",
-      "category": "numeric intent",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1092,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חיפה"
-        },
-        "metric": "mean_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "he-mean-ppsm",
-      "category": "numeric intent",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1069,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון"
-        },
-        "metric": "mean_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "count-all",
-      "category": "numeric intent",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1140,
-      "plan": {
-        "intent": "query",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "count-city",
-      "category": "numeric intent",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1013,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "ירושלים"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "alias-ta",
-      "category": "normalization",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1158,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "תל אביב-יפו"
-        },
-        "metric": "median_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "alias-bs",
-      "category": "normalization",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1016,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "באר שבע"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "alias-modiin",
-      "category": "normalization",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1016,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "מודיעין מכבים רעות"
-        },
-        "metric": "median_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "half-room",
-      "category": "filters",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1088,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "רמת גן",
-          "propertyType": "דירה",
-          "roomsMin": 3.5,
-          "roomsMax": 3.5
-        },
-        "metric": "median_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "parking-false",
-      "category": "filters",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 948,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "parking": false
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "year-range",
-      "category": "filters",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1216,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חיפה",
-          "dateFrom": "2025-01-01",
-          "dateTo": "2025-12-31"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "israeli-date",
-      "category": "filters",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1265,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "dateFrom": "2025-03-01",
-          "dateTo": "2025-03-31"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "unknown-city",
-      "category": "missing data",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1192,
-      "plan": {
-        "intent": "clarify",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": "המערכת אינה תומכת בעיר אילת. האם תרצה נתונים עבור עיר אחרת מתוך הרשימה הנתמכת?"
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "unknown-deal",
-      "category": "missing data",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 940,
-      "plan": {
-        "intent": "deal",
-        "filters": {},
-        "metric": "count",
-        "dealId": "D999999",
-        "clarification": null
-      },
-      "answerKind": "deal"
-    },
-    {
-      "id": "conflict-deal",
-      "category": "investigation",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 957,
-      "plan": {
-        "intent": "deal",
-        "filters": {},
-        "metric": "count",
-        "dealId": "D100017",
-        "clarification": null
-      },
-      "answerKind": "deal"
-    },
-    {
-      "id": "quality",
-      "category": "investigation",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1071,
-      "plan": {
-        "intent": "quality",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "quality"
-    },
-    {
-      "id": "ambiguous-price",
-      "category": "ambiguity",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1169,
-      "plan": {
-        "intent": "clarify",
-        "filters": {
-          "propertyType": "דירה"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": "באיזו עיר ברצונך לברר את מחיר הדירה?"
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "ambiguous-number",
-      "category": "ambiguity",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1351,
-      "plan": {
-        "intent": "clarify",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": "איזה מספר ברצונך לבדוק? אנא פרט מהו הערך או השדה הרלוונטי."
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "ambiguous-expensive",
-      "category": "ambiguity",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1259,
-      "plan": {
-        "intent": "clarify",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": "מה הכוונה ב'יקרות'? האם התכוונת למחיר חציוני, ממוצע, או לרשימת דירות מעל מחיר מסוים?"
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "valuation",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1268,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "forecast",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1007,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "rent",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1063,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "causal",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1176,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "customers",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1046,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "coords",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1138,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "comparison",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1225,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "open-jira",
-      "category": "action boundary",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1003,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "priority-injection",
-      "category": "action boundary",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1283,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "prompt-injection",
-      "category": "injection",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1200,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "sql-injection",
-      "category": "injection",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1000,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "false-answer",
-      "category": "injection",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 987,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון"
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "history-switch",
-      "category": "follow-up",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1106,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חיפה",
-          "propertyType": "דירה",
-          "roomsMin": 4,
-          "roomsMax": 4
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "history-ambiguous",
-      "category": "follow-up",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1115,
-      "plan": {
-        "intent": "clarify",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": "לגבי איזו עיר או איזור מתייחסת הבקשה?"
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "english-query",
-      "category": "multilingual",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1243,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה",
-          "roomsMin": 4,
-          "roomsMax": 4
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "typo-query",
-      "category": "language",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1046,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "parking": false
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "missing-date-field",
-      "category": "unsupported",
-      "repeat": 1,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 995,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {
-          "city": "חולון"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "he-median",
-      "category": "numeric intent",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1350,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה",
-          "roomsMin": 4,
-          "roomsMax": 4
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "he-mean",
-      "category": "numeric intent",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1133,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חיפה"
-        },
-        "metric": "mean_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "he-mean-ppsm",
-      "category": "numeric intent",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1114,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון"
-        },
-        "metric": "mean_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "count-all",
-      "category": "numeric intent",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1140,
-      "plan": {
-        "intent": "query",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "count-city",
-      "category": "numeric intent",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1229,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "ירושלים"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "alias-ta",
-      "category": "normalization",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1009,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "תל אביב-יפו"
-        },
-        "metric": "median_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "alias-bs",
-      "category": "normalization",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1134,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "באר שבע"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "alias-modiin",
-      "category": "normalization",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1075,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "מודיעין מכבים רעות"
-        },
-        "metric": "median_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "half-room",
-      "category": "filters",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1062,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "רמת גן",
-          "propertyType": "דירה",
-          "roomsMin": 3.5,
-          "roomsMax": 3.5
-        },
-        "metric": "median_price",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "parking-false",
-      "category": "filters",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1146,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "parking": false
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "year-range",
-      "category": "filters",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 994,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חיפה",
-          "dateFrom": "2025-01-01",
-          "dateTo": "2025-12-31"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "israeli-date",
-      "category": "filters",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1106,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "dateFrom": "2025-03-01",
-          "dateTo": "2025-03-31"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "unknown-city",
-      "category": "missing data",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1505,
-      "plan": {
-        "intent": "clarify",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": "העיר אילת אינה נמצאת ברשימת הערים שלך. האם תרצה לבחור עיר מתוך הרשימה או להוסיף את אילת לקטלוג?"
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "unknown-deal",
-      "category": "missing data",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1404,
-      "plan": {
-        "intent": "deal",
-        "filters": {},
-        "metric": "count",
-        "dealId": "D999999",
-        "clarification": null
-      },
-      "answerKind": "deal"
-    },
-    {
-      "id": "conflict-deal",
-      "category": "investigation",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1081,
-      "plan": {
-        "intent": "deal",
-        "filters": {},
-        "metric": "count",
-        "dealId": "D100017",
-        "clarification": null
-      },
-      "answerKind": "deal"
-    },
-    {
-      "id": "quality",
-      "category": "investigation",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1001,
-      "plan": {
-        "intent": "quality",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "quality"
-    },
-    {
-      "id": "ambiguous-price",
-      "category": "ambiguity",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1079,
-      "plan": {
-        "intent": "clarify",
-        "filters": {
-          "propertyType": "דירה"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": "באיזו עיר תרצה לדעת את מחיר הדירה?"
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "ambiguous-number",
-      "category": "ambiguity",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1215,
-      "plan": {
-        "intent": "clarify",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": "לא צוין מספר לבדיקה. נא לציין איזה מספר לבדוק."
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "ambiguous-expensive",
-      "category": "ambiguity",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1169,
-      "plan": {
-        "intent": "clarify",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": "מה אתה מגדיר כדירה 'יקרה'? האם תרצה את הדירות היקרות ביותר, חציון מחיר, ממוצע או טווח מחירים מסוים?"
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "valuation",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1122,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "forecast",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 979,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "rent",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1110,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה"
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "causal",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1051,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "customers",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1009,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "coords",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1156,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "comparison",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 950,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "open-jira",
-      "category": "action boundary",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 985,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "priority-injection",
-      "category": "action boundary",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 989,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "prompt-injection",
-      "category": "injection",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1018,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "sql-injection",
-      "category": "injection",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1018,
-      "plan": {
-        "intent": "unsupported",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "unsupported"
-    },
-    {
-      "id": "false-answer",
-      "category": "injection",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 992,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון"
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "history-switch",
-      "category": "follow-up",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1350,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חיפה",
-          "propertyType": "דירה",
-          "roomsMin": 4,
-          "roomsMax": 4
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "history-ambiguous",
-      "category": "follow-up",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1154,
-      "plan": {
-        "intent": "clarify",
-        "filters": {},
-        "metric": "count",
-        "dealId": null,
-        "clarification": "למה התכוונת? אנא פרט עיר, שכונה או מדד שאתה מבקש לבדוק."
-      },
-      "answerKind": "clarify"
-    },
-    {
-      "id": "english-query",
-      "category": "multilingual",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1126,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "propertyType": "דירה",
-          "roomsMin": 4,
-          "roomsMax": 4
-        },
-        "metric": "median_ppsm",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "typo-query",
-      "category": "language",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 1534,
-      "plan": {
-        "intent": "query",
-        "filters": {
-          "city": "חולון",
-          "parking": false
-        },
-        "metric": "count",
-        "dealId": null,
-        "clarification": null
-      },
-      "answerKind": "metric"
-    },
-    {
-      "id": "missing-date-field",
-      "category": "unsupported",
-      "repeat": 2,
-      "pass": true,
-      "failures": [],
-      "elapsedMs": 970,
+      "elapsedMs": 1578,
       "plan": {
         "intent": "unsupported",
         "filters": {

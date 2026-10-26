@@ -1,3 +1,32 @@
+# Current chat audit — 2026-10-26
+
+This section supersedes historical readiness statements below. User direction: validate the chat first; Jira is deferred and remains disabled. Paperclip is out of scope.
+
+| Check | Actual result | Evidence |
+| --- | --- | --- |
+| CSV provenance | 530 source rows, 520 unique IDs; JSON is lossless | `chat-source-audit.json`, CSV SHA256 `cfe4a245e08a1bda6daf53a0e16c8f745c4b2e154713ce63fee8bca8ab9aac88` |
+| Independent numeric/evidence audit | 155/155 | Python stdlib reads raw CSV independently; five metrics across 31 cohorts; compares values, counts, exact included/excluded IDs and partial dates |
+| Expanded live regression | 108/108 (36 cases × 3) | `evals/results/chat-final.json`; pinned `gpt-4.1-2025-04-14`, prompt/code hashes |
+| New held-out questions | 12/12, one run | `evals/results/chat-holdout.json`; authored after prompt freeze, expectations never enter model input |
+| Code, contracts, services, failure behavior, answer rendering | 109/109 | `pnpm test` |
+| Legacy SQL guards | 11/11 | `pnpm test:db`; SQLite, not a substitute for hosted PostgreSQL |
+| Earlier deterministic harness | 107/107 | Contains 60 numeric checks and 36 grader self-checks; not live calls |
+| TypeScript and Next.js build | Passed | Local final source checks; hosted build independently gates migration/Postgres verification |
+
+The new live audit executes the actual planner and deterministic investigation pipeline. Numeric and quality results are compared to a separate CSV oracle, including evidence membership. It is not a visual/browser end-to-end test, a human review of every possible answer, or a proof of universal correctness. Expanded regression cases were used for prompt tuning. The separate 12-case holdout was not used for tuning.
+
+**Repairs:** scoped quality analysis, complete flagged evidence, visible quality filters and cohort size, partial-month disclosure, shared production/eval capability catalogue, unsupported-filter refusal guidance, contradictory-scope clarification, and an explicit caller deadline even for an abort-ignoring transport. Three quality regressions failed before the fix. No automatic model retry was added.
+
+**Grading corrections:** the contradictory-city case now expects clarification; this changes one baseline expectation and is documented in AI_LOG.md. The old planner grader rejected literal `מודיעין`, although the tool normalizes it to the same cohort as `מודיעין מכבים רעות`. Its original 35/36 report is retained as `chat-legacy-before-alias-grading.json`. The grader now accepts supported city aliases, with a regression checking identical executed values/evidence and rejection of `מודיעין עילית`.
+
+**Assignment fit:** public Hebrew RTL chat, genuine LLM intent/filter interpretation, deterministic table retrieval/arithmetic, source disclosure and honest unsupported/failure messages. The CSM guide and AI log are included. No vector database is needed for a complete 530-row structured dataset. Filters and assumptions remain visible for CSM review.
+
+**Remaining limits:** public-site browser QA is blocked by the saved browser permission, so SSR rendering tests are not called browser QA. A real verified-email positive sign-in flow is not tested. Jira is disabled; no real issue, anonymous issue link, or final Jira workflow is claimed. Earlier task-content evaluation leaked expected labels into input and does not independently validate semantics; it requires replacement before enabling Jira. Hosted PostgreSQL gates were previously repaired and passed; every new deployment reruns them. Current deployment and CI confirmation are reported in the delivery status artifact.
+
+---
+
+# Historical QA evidence (retained for audit)
+
 # QA evidence — 2026-10-25
 
 ## Verified

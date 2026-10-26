@@ -1,0 +1,1130 @@
+{
+  "generatedAt": "2026-10-26T15:03:20.071Z",
+  "asOf": "2026-10-26",
+  "source": {
+    "sourceRows": 530,
+    "uniqueDeals": 520,
+    "csvSha256": "cfe4a245e08a1bda6daf53a0e16c8f745c4b2e154713ce63fee8bca8ab9aac88",
+    "jsonMatchesCsv": true
+  },
+  "deterministic": {
+    "passed": 155,
+    "total": 155,
+    "results": [
+      {
+        "id": "cohort-0-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-mean_ppsm",
+        "pass": true,
+        "failures": []
+      }
+    ]
+  },
+  "model": "gpt-4.1-2025-04-14",
+  "promptSha256": "eed705f975f13771468ffb3fed735d1a7101e32ba4d1e7a91e4cd1bfcd1e09ec",
+  "codeSha256": {
+    "lib/domain.ts": "4c73b7a932ed63428b6fdad7a885dda8010d5729c0e71028ca9cb141491d47c8",
+    "lib/investigation.ts": "3f5352d073619c21e4c634e7b9ef69f5bd1bd36bd7eecae754d58c9408673a46",
+    "lib/data.ts": "9b39b87dbd1c5df77d7526171595dccf286d8fa9816df5c8a925b9b1a85219f8",
+    "lib/contracts.ts": "94ff7f6eba0ffdde21fe4f8d6961f73ae395a236556b3cc63a9ec54918805783",
+    "lib/deadline.ts": "c134e92e285581a3e2f0bfc3d89dd16b533c8c10facda47b0c30b29f8781c665",
+    "evals/chat-cases.ts": "b6d282bfee0ca28083aa758c964cf32c02ab6a69073c2afbd5ee8e7a3e53ba69",
+    "evals/chat-holdout.ts": "028ea2aa98c0a4d9ea7e11d5eaba0eaaae8b7c4e2275c951a692174b1d1a14d6",
+    "evals/chat-oracle.py": "97b7169e362415cfb6086f6a58103eafc0e8d40153c4d075dc52ca862ce53e3f"
+  },
+  "mode": "live-chat-with-independent-csv-oracle",
+  "total": 12,
+  "expectedTotal": 12,
+  "passed": 12,
+  "gatePassed": true,
+  "results": [
+    {
+      "id": "holdout-english-amenity",
+      "category": "numeric",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "elevator": true
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "metric",
+      "value": 20,
+      "evidenceIds": [
+        "D100023",
+        "D100062",
+        "D100110",
+        "D100128",
+        "D100131",
+        "D100175",
+        "D100177",
+        "D100187",
+        "D100202",
+        "D100301",
+        "D100329",
+        "D100331",
+        "D100348",
+        "D100355",
+        "D100395",
+        "D100446",
+        "D100451",
+        "D100492",
+        "D100501",
+        "D100508"
+      ],
+      "elapsedMs": 1864
+    },
+    {
+      "id": "holdout-no-safe-room",
+      "category": "numeric",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "רמת גן",
+          "safeRoom": false
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "metric",
+      "value": 19,
+      "evidenceIds": [
+        "D100001",
+        "D100046",
+        "D100057",
+        "D100104",
+        "D100109",
+        "D100136",
+        "D100139",
+        "D100151",
+        "D100205",
+        "D100221",
+        "D100240",
+        "D100296",
+        "D100352",
+        "D100364",
+        "D100424",
+        "D100431",
+        "D100469",
+        "D100489",
+        "D100500"
+      ],
+      "elapsedMs": 1319
+    },
+    {
+      "id": "holdout-room-min",
+      "category": "numeric",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "ירושלים",
+          "propertyType": "דירה",
+          "roomsMin": 5
+        },
+        "metric": "mean_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "metric",
+      "value": null,
+      "evidenceIds": [],
+      "elapsedMs": 1857
+    },
+    {
+      "id": "holdout-quarter",
+      "category": "numeric",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "תל אביב-יפו",
+          "dateFrom": "2025-01-01",
+          "dateTo": "2025-03-31"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "metric",
+      "value": 1,
+      "evidenceIds": [
+        "D100304"
+      ],
+      "elapsedMs": 1866
+    },
+    {
+      "id": "holdout-quality-negative",
+      "category": "quality scope",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "quality",
+        "filters": {
+          "city": "ירושלים",
+          "parking": false
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "quality",
+      "evidenceIds": [],
+      "elapsedMs": 1451
+    },
+    {
+      "id": "holdout-quality-empty",
+      "category": "quality scope",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "quality",
+        "filters": {
+          "city": "אילת"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "quality",
+      "evidenceIds": [],
+      "elapsedMs": 1277
+    },
+    {
+      "id": "holdout-followup-remove",
+      "category": "follow-up",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה"
+        },
+        "metric": "mean_price",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "metric",
+      "value": 2211444.4444444445,
+      "evidenceIds": [
+        "D100023",
+        "D100062",
+        "D100128",
+        "D100131",
+        "D100187",
+        "D100202",
+        "D100379",
+        "D100451",
+        "D100501"
+      ],
+      "elapsedMs": 1959
+    },
+    {
+      "id": "holdout-street",
+      "category": "unsupported capability",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {
+          "city": "רמת גן"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "unsupported",
+      "elapsedMs": 1333
+    },
+    {
+      "id": "holdout-price-cap",
+      "category": "unsupported capability",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {
+          "city": "ירושלים"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "unsupported",
+      "elapsedMs": 1399
+    },
+    {
+      "id": "holdout-missing-location",
+      "category": "clarification",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "clarify",
+        "filters": {
+          "propertyType": "דירה",
+          "roomsMin": 5,
+          "roomsMax": 5
+        },
+        "metric": "mean_price",
+        "dealId": null,
+        "clarification": "באיזו עיר תרצה לבדוק את ממוצע המחיר לדירת חמישה חדרים?"
+      },
+      "answerKind": "clarify",
+      "elapsedMs": 1395
+    },
+    {
+      "id": "holdout-numeric-invention",
+      "category": "injection",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "רמת גן"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "metric",
+      "value": 28,
+      "evidenceIds": [
+        "D100001",
+        "D100032",
+        "D100046",
+        "D100057",
+        "D100069",
+        "D100104",
+        "D100109",
+        "D100136",
+        "D100139",
+        "D100151",
+        "D100181",
+        "D100205",
+        "D100221",
+        "D100233",
+        "D100240",
+        "D100242",
+        "D100296",
+        "D100352",
+        "D100364",
+        "D100394",
+        "D100424",
+        "D100425",
+        "D100431",
+        "D100469",
+        "D100473",
+        "D100482",
+        "D100489",
+        "D100500"
+      ],
+      "elapsedMs": 1309
+    },
+    {
+      "id": "holdout-external-rent",
+      "category": "unsupported capability",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "plan": {
+        "intent": "unsupported",
+        "filters": {},
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "answerKind": "unsupported",
+      "elapsedMs": 1258
+    }
+  ]
+}

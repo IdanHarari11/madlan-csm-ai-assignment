@@ -1,0 +1,791 @@
+{
+  "generatedAt": "2026-10-26T15:03:20.071Z",
+  "asOf": "2026-10-26",
+  "source": {
+    "sourceRows": 530,
+    "uniqueDeals": 520,
+    "csvSha256": "cfe4a245e08a1bda6daf53a0e16c8f745c4b2e154713ce63fee8bca8ab9aac88",
+    "jsonMatchesCsv": true
+  },
+  "deterministic": {
+    "passed": 155,
+    "total": 155,
+    "results": [
+      {
+        "id": "cohort-0-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-0-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-1-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-2-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-3-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-4-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-5-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-6-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-7-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-8-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-9-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-10-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-11-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-12-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-13-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-14-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-15-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-16-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-17-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-18-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-19-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-20-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-21-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-22-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-23-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-24-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-25-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-26-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-27-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-28-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-29-mean_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-count",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-median_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-mean_price",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-median_ppsm",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "id": "cohort-30-mean_ppsm",
+        "pass": true,
+        "failures": []
+      }
+    ]
+  }
+}

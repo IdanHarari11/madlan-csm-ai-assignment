@@ -1,7 +1,7 @@
-import type { Deal,Impact,MetricResult } from '../../lib/domain';
+import type { Deal,Filters,Impact,MetricResult } from '../../lib/domain';
 import type { DraftPayload } from '../../lib/task-service';
 export type ServiceStatus={dataset:{asOf:string;version:string};modelReady:boolean;jiraReady:boolean;canCreate:boolean;user:{displayName:string}|null};
-export type Investigation={kind:string;message:string;tools:string[];deals?:Deal[];result?:MetricResult;quality?:{counts:Record<string,number>;uniqueDeals:number;conflictingDeals:number;flaggedDeals:number};mode?:string;traceId?:string;suggestedQuestion?:string;plan?:unknown};
+export type Investigation={kind:string;message:string;tools:string[];deals?:Deal[];result?:MetricResult;quality?:{counts:Record<string,number>;uniqueDeals:number;conflictingDeals:number;flaggedDeals:number;filters?:Filters;excludedPartialDates?:number;asOf?:string};mode?:string;traceId?:string;suggestedQuestion?:string|null;plan?:unknown};
 export type Turn={id:string;question:string;response?:Investigation;error?:string};
 export type Draft=DraftPayload&{draftId:string;revision:number;expiresAt:number};
 export type TaskContext={turnId:string;request:string;evidenceIds:string[]};

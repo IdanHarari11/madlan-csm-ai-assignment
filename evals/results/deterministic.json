@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-26T06:51:57.368Z",
+  "generatedAt": "2026-10-26T15:03:21.058Z",
   "mode": "deterministic",
   "passed": 107,
   "total": 107,
-  "liveModelEvaluation": "NOT_RUN_NO_CREDENTIALS",
+  "liveModelEvaluation": "SEPARATE_RUN_REQUIRED",
   "results": [
     {
       "id": "golden::count",

@@ -1,3 +1,4 @@
+import {dealCount} from './language';
 import {calculateMetrics} from './domain';
 import type {Deal,MetricResult} from './domain';
 export type CustomerCase={dealId:string;asOf:string;assessment:string;findings:string[];calculation:string;nextStep:string;customerReply:string;internalSummary:string;sourceRows:number[]};
@@ -16,6 +17,6 @@ export function buildCustomerCase(deal:Deal,asOf:string):CustomerCase{
 export function metricCustomerReply(result:MetricResult){
  const names:Record<string,string>={city:'עיר',neighborhood:'שכונה',propertyType:'סוג נכס',roomsMin:'מחדרים',roomsMax:'עד חדרים',dateFrom:'מתאריך',dateTo:'עד תאריך',parking:'חניה',elevator:'מעלית',safeRoom:'ממ״ד'};
  const scope=Object.entries(result.filters).map(([k,v])=>`${names[k]??k}: ${typeof v==='boolean'?(v?'כן':'לא'):v}`).join(', ')||'כל המדגם';
- const answer=result.value===null?'אין די נתונים תקינים לחישוב המבוקש.':result.includedCount===0?'לא נמצאו בקובץ עסקאות התואמות לבקשה.':`${result.label}: ${number(result.value)} ${result.unit}, על בסיס ${result.includedCount} עסקאות.`;
- return `בדקנו בקובץ העסקאות שסופק. ${answer} מסננים: ${scope}. ${result.excluded.length?`${result.excluded.length} עסקאות הוחרגו לפי כללי הבדיקה. `:''}${result.includedCount>0&&result.includedCount<5?'זהו מדגם קטן. ':''}התוצאה מתארת את המדגם בלבד. להשוואה למספר אחר נצטרך צילום עם המדד והמסננים. אין בכך הערכת שווי או אימות של נתוני הפרודקשן.`;
+ const answer=result.value===null?'אין די נתונים תקינים לחישוב המבוקש.':result.includedCount===0?'לא נמצאו בקובץ עסקאות התואמות לבקשה.':`${result.label}: ${number(result.value)} ${result.unit}, על בסיס ${dealCount(result.includedCount)}.`;
+ return `בדקנו בקובץ העסקאות שסופק. ${answer} מסננים: ${scope}. ${result.excluded.length?`${result.excluded.length===1?'עסקה אחת הוחרגה':`${result.excluded.length} עסקאות הוחרגו`} לפי כללי הבדיקה. `:''}${result.includedCount>0&&result.includedCount<5?'זהו מדגם קטן. ':''}התוצאה מתארת את המדגם בלבד. להשוואה למספר אחר נצטרך צילום עם המדד והמסננים. אין בכך הערכת שווי או אימות של נתוני הפרודקשן.`;
 }

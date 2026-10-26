@@ -1,3 +1,19 @@
+# Evidence follow-up repair — current release
+
+A real pasted user conversation exposed a missed follow-up: `איזהנעסקאות?` immediately after a median should show its records instead of asking for city/type again. The repair adds an evidence-inspection intent and server resolution to the latest same-scope calculation. It preserves metric, filters and eligibility; it does not silently become a broader count query. The UI lists IDs and transaction details immediately and exposes original exclusions.
+
+- Code/service/rendering/session/stream/evidence regressions: 147/147 passed.
+- Exact six-turn user conversation: 12/12 live checks (two repetitions), with independent CSV values/counts/evidence IDs. Report: `evals/results/evidence-live.json`.
+- Global planner regression: 36/36; selected-scope regression: 24/24; prior conversation transitions: 16/16 on the current source.
+- The independent 155-case numeric/evidence oracle passed in the global audit.
+- Tests explicitly distinguish the original price-eligible evidence from all matching records, reject silently changed filters, preserve anchors across clarification, stop stale anchors after unrelated tools, restore evidence without its original turn, and check singular count wording.
+
+The report keeps proposed and server-canonical plans, prompt/source hashes and actual evidence IDs. Live corpus expectations never enter model input. A finite conversation suite does not prove all typos or follow-ups work. Visual/browser verification remains blocked by the saved browser permission/managed policy; SSR evidence-table rendering is not browser QA. Deployment, hosted Postgres/style verification and CI results for the exact published commit are stored in the delivery artifact. Jira was not enabled.
+
+---
+
+## Earlier release evidence
+
 # Conversation continuity and SSE progress — current release
 
 The current scope adds bounded structured memory, restoration after refresh, scope-stamped prior answers, streaming progress and provider cancellation. Jira remains disabled and no new integration or external conversation store was introduced.

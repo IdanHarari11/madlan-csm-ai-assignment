@@ -1,0 +1,482 @@
+{
+  "generatedAt": "2026-10-26T19:05:59.389Z",
+  "asOf": "2026-10-26",
+  "model": "gpt-4.1-2025-04-14",
+  "hashes": {
+    "lib/ai.ts": "79187eb77f087e6db8644fdc7ba6e23c0aed7704ac795422a73a82d6bdbab4ac",
+    "lib/contracts.ts": "81ad8c487834d190e7d45db7308d6ca68c080372a630ff9489e4bc7f6260ba3e",
+    "lib/scoped-investigation.ts": "bd2e9941698b68cd729b6c84108f05b4640d0b40e77f12b04df3d6814ca88359",
+    "lib/evidence-followup.ts": "6a8bbcfba76600598d828a776f38638bda546ca77027d27d9c935a5337e43e91",
+    "lib/conversation-context.ts": "8250ec3327a7c1158034d94384f66c824ad389ed500ba8c3e6388be14d359fd4",
+    "lib/investigation.ts": "309f098c47797e281d6d1e4c608d0151610008e0f24e070f2907ef742678fd6f"
+  },
+  "total": 12,
+  "passed": 12,
+  "gatePassed": true,
+  "results": [
+    {
+      "id": "median",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 38260,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "actual-user-typo",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "evidence",
+      "value": 38260,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "city-confirmation",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "evidence",
+      "value": 38260,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "mean",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 35481.2863327149,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "haifa",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 31010,
+      "evidenceIds": [
+        "D100451"
+      ]
+    },
+    {
+      "id": "new-jerusalem",
+      "repeat": 0,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "ירושלים"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "ירושלים"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 21,
+      "evidenceIds": [
+        "D100008",
+        "D100053",
+        "D100076",
+        "D100077",
+        "D100091",
+        "D100114",
+        "D100118",
+        "D100119",
+        "D100122",
+        "D100179",
+        "D100193",
+        "D100228",
+        "D100248",
+        "D100262",
+        "D100265",
+        "D100330",
+        "D100342",
+        "D100356",
+        "D100363",
+        "D100464",
+        "D100468"
+      ]
+    },
+    {
+      "id": "median",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 38260,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "actual-user-typo",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "evidence",
+      "value": 38260,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "city-confirmation",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "evidence",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "median_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "evidence",
+      "value": 38260,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "mean",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חולון",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 35481.2863327149,
+      "evidenceIds": [
+        "D100027",
+        "D100074",
+        "D100211"
+      ]
+    },
+    {
+      "id": "haifa",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "חיפה",
+          "propertyType": "דירה",
+          "roomsMin": 4,
+          "roomsMax": 4
+        },
+        "metric": "mean_ppsm",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 31010,
+      "evidenceIds": [
+        "D100451"
+      ]
+    },
+    {
+      "id": "new-jerusalem",
+      "repeat": 1,
+      "pass": true,
+      "failures": [],
+      "proposed": {
+        "intent": "query",
+        "filters": {
+          "city": "ירושלים"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "plan": {
+        "intent": "query",
+        "filters": {
+          "city": "ירושלים"
+        },
+        "metric": "count",
+        "dealId": null,
+        "clarification": null
+      },
+      "kind": "metric",
+      "value": 21,
+      "evidenceIds": [
+        "D100008",
+        "D100053",
+        "D100076",
+        "D100077",
+        "D100091",
+        "D100114",
+        "D100118",
+        "D100119",
+        "D100122",
+        "D100179",
+        "D100193",
+        "D100228",
+        "D100248",
+        "D100262",
+        "D100265",
+        "D100330",
+        "D100342",
+        "D100356",
+        "D100363",
+        "D100464",
+        "D100468"
+      ]
+    }
+  ]
+}

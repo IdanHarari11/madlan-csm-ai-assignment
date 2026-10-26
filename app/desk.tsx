@@ -45,8 +45,8 @@ export default function Desk({embedded=false,selectedIds=[],onResults,sourceDeal
    }else answer=await requestChat(body,stage=>{if(controller.current===abort)setProgress(stage);},abort.signal);
    if(controller.current!==abort)return;if(abort.signal.aborted)throw new DOMException('Cancelled','AbortError');
    if(!answer.plan&&preset){answer.plan={intent:preset==='deal'?'deal':preset==='quality'?'quality':'query',filters:preset==='metric'?{city:'חולון',propertyType:'דירה',roomsMin:4,roomsMax:4}:{},metric:preset==='metric'?'median_ppsm':'count',dealId:preset==='deal'?'D100017':null,clarification:null};}
-   const planned=memoryPlanSchema.safeParse(answer.plan);const resolvedScope={...scope,asOf:answer.context?.asOf??asOf,filters:answer.result?.filters??answer.quality?.filters??(planned.success?planned.data.filters:{})};
-   setTurns(t=>t.map(v=>v.id===id?{...v,response:answer,scope:resolvedScope}:v));if(answer.result&&!selectedIds.length)onResults?.(answer.result.filters);
+   const planned=memoryPlanSchema.safeParse(answer.plan);const resolvedScope={...scope,asOf:answer.context?.asOf??asOf,filters:answer.result?.filters??answer.evidenceBasis?.filters??answer.quality?.filters??(planned.success?planned.data.filters:{})};
+   setTurns(t=>t.map(v=>v.id===id?{...v,response:answer,scope:resolvedScope}:v));if(!selectedIds.length){const filters=answer.result?.filters??answer.evidenceBasis?.filters;if(filters)onResults?.(filters);}
   }catch(e){const error=e instanceof Error&&e.name==='AbortError'?'הבקשה בוטלה. לא תוצג תשובה חלקית כתוצאה מאומתת.':e instanceof Error&&e.name==='TimeoutError'?'הבדיקה לא הושלמה בזמן. אפשר לנסות שוב.':e instanceof Error?e.message:'לא הצלחנו להשלים את הבקשה. אפשר לנסות שוב.';setTurns(t=>t.map(v=>v.id===id?{...v,error}:v));}
   finally{if(controller.current===abort){controller.current=null;setPendingId(null);setProgress(null);input.current?.focus();}}
  }

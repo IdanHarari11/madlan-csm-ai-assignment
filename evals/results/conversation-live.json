@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-26T18:35:58.779Z",
+  "generatedAt": "2026-10-26T19:06:39.702Z",
   "model": "gpt-4.1-2025-04-14",
   "asOf": "2026-10-26",
   "hashes": {
-    "lib/ai.ts": "aa626149c3c06432d0183d987b2fc102005057c80db06869c92380bf8e9ce8b4",
-    "lib/contracts.ts": "81674ae6166badee6b7ed30f1c05bd4d005ca2b77bd3aec20d6d619c397a8986",
-    "lib/scoped-investigation.ts": "07de28f17c95741a93f7aa3886964ffd26cc984eed68c07c3d79214d98bacf0a",
-    "lib/conversation-context.ts": "777bb88cd3402472d5de73d225c9638d87cc9452493658d4316ca4ab6df521e9"
+    "lib/ai.ts": "79187eb77f087e6db8644fdc7ba6e23c0aed7704ac795422a73a82d6bdbab4ac",
+    "lib/contracts.ts": "81ad8c487834d190e7d45db7308d6ca68c080372a630ff9489e4bc7f6260ba3e",
+    "lib/scoped-investigation.ts": "bd2e9941698b68cd729b6c84108f05b4640d0b40e77f12b04df3d6814ca88359",
+    "lib/conversation-context.ts": "8250ec3327a7c1158034d94384f66c824ad389ed500ba8c3e6388be14d359fd4"
   },
   "total": 16,
   "passed": 16,
@@ -140,9 +140,9 @@
       "plan": {
         "intent": "unsupported",
         "filters": {},
-        "metric": "count",
+        "metric": "mean_price",
         "dealId": null,
-        "clarification": "לא ניתן לחשב הפסד כספי או להעריך נזק/השפעה כספית ללקוחות לפי הנתונים שנבחרו. אוכל לערוך השוואה בין העסקאות או להציג ממוצעים/מדדים סטטיסטיים בלבד."
+        "clarification": "לא ניתן לחשב הפסד כספי של לקוחות בהתאם למידע הקיים — אין לנו נתונים על שווי שוק, ערך עדכני או מחיר רכישה מול מכירה. ניתן להשוות בין עסקאות שבחרת או לבדוק פרטי עסקה, אך לא לחשב הפסד/רווח."
       },
       "reconstructedSteps": 1
     },
@@ -274,9 +274,9 @@
       "plan": {
         "intent": "unsupported",
         "filters": {},
-        "metric": "count",
+        "metric": "mean_price",
         "dealId": null,
-        "clarification": "אין אפשרות לחשב הפסד כספי של לקוחות מתוך הנתונים או להשיב על פניות הנוגעות להפסדים אישיים, השקעות או המלצות כספיות."
+        "clarification": "לא ניתן לחשב או להעריך הפסד כספי של לקוחות על בסיס הנתונים שנבחרו. אין נתונים על שוויי שוק בזמן הרכישה, ערך נוכחי, או כל בסיס לחישוב הפסדי לקוח, ולכן לא ניתן לענות על כך."
       },
       "reconstructedSteps": 1
     }

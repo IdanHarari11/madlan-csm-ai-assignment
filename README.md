@@ -12,6 +12,10 @@ This section supersedes the prior product positioning below; underlying data ari
 
 ---
 
+## Inspect calculation evidence
+
+After a numeric answer ask “איזה עסקאות נכללו?” to see the actual included IDs/details immediately. The server reuses the previous verified metric/filters and eligibility rules, preserving exclusions rather than substituting a new count over a broader cohort. Typos and short same-city confirmations are covered by the real-user regression in `evals/results/evidence-live.json`.
+
 ## Conversation continuity and streaming progress
 
 Up to 20 turns are saved locally in this browser tab and reconstructed from validated plans after refresh. Prior answers retain their selection/filter labels when scope changes. The server replays up to six same-scope steps and supplies actual verified previous results, rather than trusting numbers from browser storage. The saved data version is checked; raw records are not copied into the session snapshot.

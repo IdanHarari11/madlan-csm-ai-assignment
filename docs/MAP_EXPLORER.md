@@ -37,3 +37,8 @@ The client requests real SSE progress events (`planning`, then `executing` for s
 Memory contains only bounded user questions, validated plans and selected IDs; the server replays same-scope plans and adds actual previous values/counts/filters to planner context. Client numeric claims are rejected by schema. Old-scope memory cannot silently become current scope. This improves follow-up interpretation without adding unsupported forecasting, valuation or arbitrary cross-cohort calculations.
 
 No server-side conversation database or external memory service was added. Data is local to the browser tab, can be cleared, and is discarded if the data version changes or the saved schema is invalid. Source rows are reconstructed from the supplied dataset. Up to 20 turns are restored and up to six same-scope steps enter model context. Storage failure is reported without blocking chat.
+
+
+## Inspecting a previous calculation
+
+An unqualified follow-up such as “איזה עסקאות?” uses the latest verified same-scope numeric calculation and renders its included transactions in an immediate table. The original metric and eligibility rules are preserved, so excluded price/area/conflict records do not reappear through an accidental count query. Evidence inspection preserves the active metric for later mean/median follow-ups. No anchor means clarification, and changed filter constraints cannot silently alter what counts as the previous evidence. Scope, refresh and source provenance checks remain in place.

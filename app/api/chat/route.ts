@@ -1,3 +1,4 @@
+import {resolveEvidencePlan} from '../../../lib/evidence-followup';
 import {resolveSelection,planScopedQuery,executeScoped} from '../../../lib/scoped-investigation';
 import {readBody,AppError,endpoint} from '../../../lib/http';
 import {chatSchema} from '../../../lib/contracts';
@@ -21,7 +22,8 @@ export async function POST(request:Request){
    if(signal.aborted)throw new DOMException('Operation cancelled','AbortError');
    progress('planning');
    const gen=generator(e,fetch,signal),history=b.memory?.length?context.history:b.history??[];
-   const p=selected.length?await planScopedQuery(gen,b.message,history,plannerCatalogue(asOf),selected,context.state):await planQuery(gen,b.message,history,plannerCatalogue(asOf),context.state);
+   const proposed=selected.length?await planScopedQuery(gen,b.message,history,plannerCatalogue(asOf),selected,context.state):await planQuery(gen,b.message,history,plannerCatalogue(asOf),context.state);
+   const p=resolveEvidencePlan(proposed,context.state.lastCalculation);
    if(signal.aborted)throw new DOMException('Operation cancelled','AbortError');
    if(p.intent!=='unsupported'&&p.intent!=='clarify')progress('executing');
    const answer=selected.length?executeScoped(selected,p,asOf):executePlan(deals,p,asOf);

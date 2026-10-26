@@ -24,7 +24,7 @@ export function restoreConversation(raw:string|null,deals:Deal[],dataVersion:str
     if(p.intent==='deal'&&(!p.dealId||(selected.length&&!selected.some(d=>d.id===p.dealId))))throw new Error('Invalid deal scope');
     const answer=selected.length?executeScoped(selected,p,asOf):executePlan(deals,p,asOf);
     const response:Investigation={...answer,plan:p,mode:t.mode??'ai',context:{dataVersion,asOf,selectedIds:t.scope.selectedIds,restored:true}};
-    return {id:t.id,question:t.question,scope:{...scope,filters:response.result?.filters??response.quality?.filters??p.filters},response};
+    return {id:t.id,question:t.question,scope:{...scope,filters:response.result?.filters??response.evidenceBasis?.filters??response.quality?.filters??p.filters},response};
    }catch{return {id:t.id,question:t.question,scope,error:'לא ניתן לשחזר את התוצאה בנתונים הנוכחיים. אפשר לשלוח את השאלה שוב.'};}
   });
  }catch{return [];}

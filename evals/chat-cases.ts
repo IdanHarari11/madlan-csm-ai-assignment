@@ -1,5 +1,5 @@
 import type { Filters,Metric } from '../lib/domain';
-export type ChatCase={id:string;category:string;message:string;history?:{role:'user'|'assistant';content:string}[];expected:{intent:('query'|'quality'|'deal'|'clarify'|'unsupported')[];filters?:Filters;metric?:Metric;dealId?:string}};
+export type ChatCase={id:string;category:string;message:string;history?:{role:'user'|'assistant';content:string}[];expected:{intent:('query'|'quality'|'deal'|'clarify'|'unsupported'|'evidence')[];filters?:Filters;metric?:Metric;dealId?:string}};
 // Expanded regression corpus. Expectations never enter the model input.
 export const chatCases:ChatCase[]=[
  {id:'median-ppsm-rooms',category:'numeric',message:'לקוח מחולון שואל: בכמה נמכר מטר בדירת ארבעה חדרים? תן את החציון במדגם.',expected:{intent:['query'],filters:{city:'חולון',propertyType:'דירה',roomsMin:4,roomsMax:4},metric:'median_ppsm'}},

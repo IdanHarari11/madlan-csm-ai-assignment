@@ -30,7 +30,7 @@ A public Hebrew/RTL chat for a Customer Success Manager investigating “this nu
 
 - **Live app:** https://madlan-csm-chat.vercel.app/
 - **Repository:** https://github.com/IdanHarari11/madlan-csm-ai-assignment
-- **One-page CSM guide:** [Hebrew guide](docs/CSM_GUIDE.md) · [live guide](https://madlan-csm-chat.vercel.app/guide)
+- **One-page CSM guide:** [English guide](docs/CSM_GUIDE.md) · [live guide](https://madlan-csm-chat.vercel.app/guide)
 - **AI working log:** [AI_LOG.md](docs/AI_LOG.md)
 - **Validation and limits:** [QA_REPORT.md](docs/QA_REPORT.md)
 - **English demo:** [DEMO.md](docs/DEMO.md)

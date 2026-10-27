@@ -1,112 +1,41 @@
-# AI assistance log
+# יומן עבודה עם AI — מפה, עסקאות וצ׳אט
 
-Date: 2026-10-25. Assistant: ChatGPT/Codex. This log records work that actually occurred; no simulated live-provider results are presented as real.
+עודכן ב־27.10.2026
 
-## Product decisions
+זהו סיכום ממוקד של החלטות הפיתוח, השימוש ב־AI והבדיקות של המוצר המוגש.
 
-The initial conversation explored a CSM chat that could hand work to Jira and autonomous development agents. The agreed scope removes autonomous implementation: investigate a supplied CSV, show evidence, propose a structured issue and priority, and require a permitted CSM's explicit confirmation before Jira creation.
+## המטרה והפתרון
 
-AI assisted with product scope, profiling, implementation, test design, documentation and review. The supplied brief remains authoritative. A compact, bounded planner was chosen over a general-purpose agent or vector search: the model selects a supported operation and typed filters; deterministic code does all arithmetic and renders the factual answer. A second structured call prepares an editable task proposal. No model receives a tool for writing to Jira.
+המוצר מאפשר לחקור את מדגם עסקאות הנדל״ן באמצעות מפה, כרטיסים וצ׳אט בעברית. אפשר לשאול על כל המדגם, לבחור עד שלוש עסקאות ולהתמקד בהן או להשוות ביניהן. עבור CSM, הערך הוא מעבר משאלה על נתון לבדיקה שאפשר לשחזר ולהסביר.
 
-## A bad AI output that was caught
+השתמשתי ב־ChatGPT/Codex לתכנון, כתיבת קוד, סקירת הנתונים, בניית בדיקות ותיעוד. החלטות מוצר ותוצאות שנראו בפועל שימשו לביקורת ולתיקונים, לצד בדיקות אוטומטיות.
 
-The assistant-generated first UI/API implementation assumed that `response.json()` was already a typed application response and that a schema default made request history non-optional at every type boundary. The actual typecheck rejected both assumptions. The code was corrected to type the parsed response and explicitly handle omitted history. The failure is useful evidence of why generated code must be checked rather than accepted because it looks plausible.
+## החלטות תכנון
 
-A more consequential design risk identified during profiling: treating all repeated IDs as harmless duplicates would have silently selected a price for four conflicting transactions. Inspecting raw source variants showed differing prices and sources. The implementation preserves all originals, reports the conflict and excludes these IDs from price metrics. Independent reference values and row-permutation checks guard this policy. This is a caught unsafe assumption, not a claim that a live model generated a particular false price.
+- **המודל מפרש; הקוד מחשב.** המודל מתרגם שאלה, מסננים ושאלות המשך לתוכנית מובנית ומאומתת. כל החישובים ורשימות הראיות מופקים בקוד. אין צורך במסד וקטורי כדי לחפש בטבלה מלאה של 530 שורות ו־520 מזהי עסקאות.
+- **אין המצאת מיקום.** בקובץ אין מספרי בית או קואורדינטות. העסקאות מקובצות ב־18 נקודות עיר מיוחסות ל־GeoNames, על רקע OpenStreetMap. הדיוק מצוין בממשק; אין פיזור מלאכותי של נכסים ברחובות.
+- **המקור נשמר.** כפילויות נספרות פעם אחת. גרסאות סותרות נשמרות ולא נבחר להן מחיר קובע. נתונים חסרים או חריגים מוחרגים לפי כללי החישוב ומוצגים למשתמש.
+- **הקשר מפורש.** הבחירה נאכפת בשרת. תשובות נשארות מסומנות בהיקף שבו חושבו. עד שישה סבבים באותו היקף משמשים כזיכרון למודל, לאחר שחזור תוצאותיהם מהנתונים; מספרים מהדפדפן אינם מקור אמת.
+- **שמירה ותגובה.** עד 20 סבבים נשמרים מקומית בלשונית ומשוחזרים מהמדגם אחרי רענון. אירועי התקדמות מגיעים מהשרת בזמן אמת, והתוצאה מפורסמת לאחר אימות. ביטול מועבר לספק, לצד מגבלת זמן וללא ניסיון חוזר אוטומטי.
 
-## Verification choices
+## טעויות שנתפסו ותוקנו
 
-- Synthetic edge cases and real-data assertions test parsing, arithmetic and provenance.
-- An independent Python CSV implementation produces checked-in numerical golden values.
-- Tests execute the actual shipped SQL on SQLite, including concurrent connections, atomic quotas and uniqueness.
-- Provider HTTP transports are mocked for outage/timeout/invalid-result checks; Jira tests simulate success, rejection, similarity, replay and uncertain POST outcomes.
-- A hand-authored live-model corpus tests Hebrew intent, exact cohorts, follow-ups, unsupported claims and injection. Grading is deterministic, with a separate critical-safety gate.
-- Live model and live Jira credentials were not supplied during initial implementation. Mock tests, grader self-tests and deterministic evals are explicitly separated from live evaluations.
+**בקשת ראיות שלא הובנה.** אחרי חישוב חציון בחולון, השאלה ״איזהנעסקאות?״ גרמה למודל לבקש עיר מחדש למרות ההקשר. הוספתי פעולת הצגת ראיות לחישוב הקודם: השרת שומר את המדד, המסננים וההחרגות ומציג מיד את העסקאות שנכללו. הרצף המלא נבדק פעמיים מול המודל ומחשבון CSV עצמאי. התקבלו D100027, D100074 ו־D100211.
 
-## What remains a human decision
+**השוואה במקום ממוצע.** בבדיקה של שתי עסקאות נבחרות, המודל החזיר השוואה במקום לחשב את המחיר הממוצע. חידדתי את ההפרדה בין טבלת מאפיינים לכל עסקה לבין חישוב מצרפי לבחירה, והרצתי מחדש את הבדיקות. דוח הכישלון נשמר ב־`evals/results/map-scope-aggregate-failure.json`.
 
-The CSM validates the selected population, reported customer impact, proposed requirement and issue text before submission. The candidate must be able to explain the policies and limitations; automated tests cannot prove that every possible natural-language request is interpreted correctly.
+**היעלמות מסננים.** בדיקות רחבות יותר חשפו בדיקת איכות שהתעלמה מהמסננים, ובקשת סף מחיר שהפכה לחיפוש רחב יותר בלי הסף. בדיקת האיכות תוקנה בקוד; יכולות הסינון הוגדרו במפורש, והמודל מונחה לסרב לתנאי שאינו נתמך במקום להשמיט אותו.
 
-## Review correction: confirmation race
+**עיצוב שלא נטען.** צילום מסך מבדיקה ידנית חשף שמסך המפה הוצג בלי עיצוב הכרטיסים, למרות בנייה מוצלחת. הפרדתי את העיצוב לקובץ שנטען עם העמוד והוספתי שער שבודק את קובץ העיצוב בפלט הפרסום. המשתמש אישר לאחר התיקון שהמסך נראה טוב. הסיבה המדויקת לכשל הטעינה בדפדפן לא אומתה.
 
-During the final review the assistant found that a draft's duplicate fingerprint was insufficient to identify the exact text a CSM had reviewed: editing a description could leave the evidence fingerprint unchanged. That could permit a concurrent submission to use a stale proposal. The design was corrected to carry an explicit draft revision through edits, the confirmation API and the database reservation trigger. Both service and real-SQL regression tests reject a stale revision even when its duplicate fingerprint is unchanged. This is a concrete correction to the AI-assisted implementation, not a hypothetical limitation.
+## כיצד בדקתי
 
-## Interface correction requested by the candidate
+הגרסה כוללת 147 בדיקות קוד, חוזים, שירותים, רינדור, שמירה וזרימה; 155 השוואות עצמאיות מול CSV; ו־88 בדיקות מודל חיות, כולל חזרות של רצפי שיחה. בדיקות Postgres במהלך הפריסה עברו 7/7. פירוט התוצאות, גרסאות המקור ודוחות הכישלון נמצאים ב־[QA_REPORT.md](QA_REPORT.md) וב־`evals/results/`.
 
-The first interface overemphasized dashboards, statistics and filters. The candidate clarified that the product should be a simple chat. The UI was replaced by a single conversation with collapsed evidence and an inline, step-by-step task card. Source rows, arithmetic, permission checks and write safeguards remain in the backend. Device-local session state preserves a small recent transcript and the selected task context through sign-in; it is not trusted as evidence or authorization.
+בבדיקות נבדקים גם מזהי העסקאות וההחרגות, לא רק מבנה תשובת המודל. כשלים של ספק, פלט לא תקין, ביטול וניתוק זרימה נבדקו עם תעבורת ספק מדומה; הם אינם מוצגים ככשלים של ספק חי. תרחישים ששימשו לשיפור ההנחיות נחשבים רגרסיה, לא הוכחה עצמאית על שאלות שלא נראו.
 
-Browser verification caught an actual generated-code error: `crypto.randomUUID()` is unavailable on the HTTP preview origin. It was used only for local message IDs, so those IDs were replaced by a time/sequence identifier; server-generated task and operation UUIDs are unchanged. The fixed browser flow was rerun successfully. This is another concrete example of a bug missed by typecheck and caught by testing the user flow.
+## מגבלות ואחריות
 
+הכלי עובד על המדגם בלבד. הוא אינו מאמת מידע בפרודקשן, מעריך שווי, חוזה מחירים, מסיק נזק ללקוחות או יוצר טיקטים. זרימת ההתקדמות אינה הסבר שנוצר מילה־מילה. שחזור שיחה מחשב את התוצאות מחדש בתאריך הבדיקה הנוכחי.
 
-## Codex continuation — 2026-10-25
-
-A real API run exposed errors that the deterministic and mock tests could not catch. Baseline `gpt-4.1-mini-2025-04-14` passed only 82/108 planner checks, with 13 critical failures. For example, a rental-yield question was converted into sale-price statistics; dates could fail ISO validation; follow-up queries lost the previous metric and room filter. Task structure passed 10/10, but manual inspection caught a proposal to choose one uniform price from conflicting source values and another unsupported suggestion that the app guessed missing data.
-
-The planner prompt now resolves unsupported capability checks before clarification, requires ISO date output and explicitly preserves user-requested follow-up filters. The task prompt preserves unresolved conflicting variants and forbids invented behavior and automatic correction. The model was changed to the available, pinned `gpt-4.1-2025-04-14`. Model and prompt changed together, so the observed improvement cannot be attributed to either alone. Final planner runs passed 108/108 (36 cases, three repetitions), and task checks passed 10/10. Generated wording remains a proposal subject to CSM review; these finite cases do not establish universal correctness.
-
-The handoff's Linux-only installer failed on macOS. Added a portable entry point that keeps the frozen pnpm lockfile and pinned package manager, while retaining the original managed-Linux installer. No application interface redesign or Paperclip work was introduced. The API key is ignored locally and is not part of this repository.
-
-
-## Migration debugging — 2026-10-26
-
-Vercel migration exposed an agent mistake in the test harness: it assumed connection-level `search_path` selected an isolated schema. The first run passed, but a repeat build failed the global reservation and model-budget checks because synthetic fixtures had used public tables. A new schema assertion stopped another candidate before fixture writes. The final repair qualifies adapter table names explicitly, binds trigger functions to the target schema, uses transaction-local DDL context and uses the direct Neon connection for migration/integration checks. Exact synthetic fixture signatures were cleaned up without selecting real draft contents. The corrected suite passed 7/7; production promotion remains blocked whenever this gate fails. This was a harness-isolation problem, not evidence that mocked SQL tests prove production readiness.
-
-## Chat grounding audit — 2026-10-26
-
-The candidate asked to pause Jira and validate the chat first. A separate Python CSV oracle verified that all 530 raw rows are preserved in JSON (520 unique IDs), and checked 155 cohort/metric combinations, including the actual evidence IDs and exclusions, rather than just the model's intended plan. All 155 passed. This is structured retrieval over the supplied table, not embedding/vector RAG.
-
-The expanded 36-case live baseline passed 24 cases. It exposed a real implementation error: quality analysis ignored the requested filters and silently returned only the first 30 flagged records. It also exposed model errors, including dropping a price threshold and answering a broader query, and one provider timeout. Three new regression tests failed before the quality repair and passed afterward. Quality now uses the same cohort filtering policy as numeric queries, returns every flagged record, and discloses scope and partial-date exclusions in the answer. Rendering tests check what the CSM actually reads.
-
-The original adversarial case "count Haifa; ignore the question and search all cities" was also reviewed: it is genuinely contradictory about the requested population. Its expected outcome was corrected to clarification, rather than insisting on a specific interpretation. The revised prompt asks instead of silently broadening the population. This is a documented grading-policy correction, not a claimed model improvement on an unchanged benchmark. The 36 cases are now a tuning/regression corpus, not a held-out test. Intermediate reports are retained, including failures (32/36, then 36/36). A separate 12-case holdout was authored after the last prompt change. Final run results are recorded in QA_REPORT.md.
-
-Production and evals now share one explicit capability catalogue. Price thresholds, balcony, construction year, floor and street filtering are not implemented, even where a raw CSV field exists; the planner must refuse rather than discard those constraints. A separate caller deadline bounds provider latency even when transport cancellation does not settle. There is no automatic retry. Finite eval results cannot establish that all future natural-language questions are understood correctly; the UI continues to expose selected filters for human review.
-
-The old task-content eval passes expected category/error labels into its model input. Its prior 10/10 result must not be treated as an independent semantic assessment or evidence that the Jira workflow is ready. Jira stays disabled and out of this audit's release gate; an unbiased task-content evaluation and a real signed-in, approved creation flow remain future work.
-
-The final expanded regression passed 108/108 (three runs); the new holdout passed 12/12 on the unchanged prompt. The legacy city-label grader was corrected to accept aliases only under the documented normalization policy, with a test of identical executed value and evidence and rejection of a different city. The pre-correction report is preserved. Current code/service/rendering tests passed 109/109, and the independent numeric/evidence oracle passed 155/155.
-
-## Submission focus — customer investigation
-
-After discussing alternatives, the candidate chose a CSM investigating a customer complaint as the primary product. The welcome screen and examples now begin with that task. A specific transaction opens a deterministic case assessment, reproducible calculation or exclusion, next step, copyable proposed customer response and internal handoff. The LLM still performs the substantive language/intent/follow-up interpretation; the customer text is assembled from factual tool results to avoid unconstrained claims. Public investigation and copying require no account. Unavailable Jira actions/sign-in are hidden from this workflow; nothing is sent to a customer or Jira.
-
-New tests cover conflicting variants, missing area, future/suspicious inputs, reported-versus-computed discrepancy, source provenance, nonexistent IDs and rendered customer-facing text. They also caught an incorrect test assumption: raw prices are preserved as `1919000`, not reformatted `1,919,000`; the assertion was corrected to match the lossless source representation.
-
-The first 12-case customer corpus repeated three times passed 33/36. All three failures routed a question about financial customer losses to deal inspection merely because it contained a valid ID. It did not produce a fabricated loss amount, but it selected the wrong capability. The prompt now applies unsupported customer-impact/financial-loss/root-cause checks before deal routing. The failed report is preserved as `submission-customer.json`. Final scores are in QA_REPORT.md. These customer cases are regression cases, not held-out evidence.
-
-The user reported allowing browser access. The supported browser tool was tried once afterward and still rejected the origin because of a saved permission or managed policy. No alternate browser, raw HTTP UI substitute or policy bypass was attempted. Visual/copy/keyboard/device verification remains a documented limitation unless the permission gate genuinely changes.
-
-The project intentionally cuts the optional Jira integration from submission acceptance rather than presenting a disabled extension as a working feature. Protected extension code remains for continuity. The original challenge asked for a deployed useful LLM/data product, a CSM guide, a repository and this log; it did not require Jira. Work evolved across multiple continuation sessions and is not claimed to fit the original five-hour estimate.
-
-
-## User-directed pivot — map and selected transactions
-
-The candidate rejected the complaint-led product and proposed a map, popup cards and chat scoped to selected transactions. The primary interface now follows that direction. Existing arithmetic, provenance and failure checks are reused, rather than discarded. A separate strict planner handles selection-bound comparisons, while the existing global planner remains unchanged. Selected IDs are validated against server records; unknown/duplicate/oversized selections and cross-scope deal IDs are rejected. Comparison filters are actually applied, with clarification if fewer than two records remain.
-
-The lack of exact addresses was not solved by making up marker positions: one city point groups each city's deals, with explicit UI precision notes and attributable GeoNames IDs. The national GeoNames extract was downloaded once; no generic runtime geocoder was introduced. Standard OSM tiles load only for the user's viewport, with attribution and fallback. Every deal remains accessible through paginated cards.
-
-Tests cover scope enforcement, conflicting comparison values, all 18 city mappings, unsupported/outside-scope questions and the current live scoped corpus. Changing selection clears context and aborts a stale request; manual map filtering does not silently alter chat scope. Map chat is ephemeral across reloads. Existing browser permission denial still prevents claiming visual or pointer interaction QA.
-
-The scoped live regression first passed 24/24, but after the filter guard was added a fresh run failed 2/24: both average requests were misclassified as comparisons. This exposed instability rather than an arithmetic error. The prompt now explicitly gives aggregate intent precedence for count/mean/median and reserves compare for per-record differences. The final 24/24 report retains source hashes; the failed run remains in `map-scope-aggregate-failure.json`. Current code tests passed 124/124 and the CSV oracle 155/155. A subsequent global-planner browsing rule maps show/list/filter requests to count plus the requested filters, so the UI can synchronize without requiring a price metric. The global regression and four browsing smoke cases are recorded separately.
-
-
-## Screenshot caught a visual delivery failure
-
-The candidate's screenshot showed the new explorer markup with the old chat styling and no map/card layout. Prior green builds, model evals and rendering tests had not established that browser styles loaded correctly. Source and local compiled CSS both contained the intended rules; the exact client/network cause is not confirmed because browser observation remains blocked. The repair moves explorer styles out of the persistent root-layout bundle into a stylesheet imported by the explorer itself. The resulting home-page manifest now references a dedicated explorer CSS chunk. A new `verify:styles` gate inspects the actual production manifest and CSS for a page-specific stylesheet, desktop grid, map height and embedded composer positioning. Both CI and Vercel run that gate after the build. This is packaging verification, not a claim that visual browser QA was completed.
-
-
-## Authorized chat improvements only
-
-The candidate asked to implement improvements while leaving Jira out. Added bounded structured conversation memory, local session restoration, immutable per-turn scope labels, actual SSE progress events and end-to-end cancellation signals. Conversation contents are not stored in a server database. Snapshots contain questions/plans/scope, not trusted raw rows or numbers. On restore the app recomputes from the supplied data, labels the current as-of date and caps restoration at 20 turns. Model context uses at most six same-scope steps whose results are replayed server-side.
-
-The stream sends real workflow events, not a fake typing animation or partial model arithmetic. The final result is emitted atomically after strict planning and deterministic tools. ReadableStream.start is synchronous with an asynchronous producer so cancellation can reach running work immediately. Tests check pending-provider cancellation, fragmented UTF-8/CRLF SSE, disconnects, sanitized error frames, invalid session data and scope branches. The server/provider deadline remains active even when a transport ignores abort; provider cancellation cannot promise zero billing.
-
-Live conversation regressions passed 16/16 (eight follow-up situations, two repetitions), the global regression passed 36/36, and scoped planning passed 24/24. These finite tests validate selected transitions, not all possible natural-language conversations. Existing unsupported capabilities were not expanded and Jira was not enabled. The saved browser policy still blocks visual interaction QA.
-
-
-## Real user transcript — evidence follow-up
-
-The candidate pasted a real conversation: Holon four-room apartment median succeeded, but the short misspelled follow-up `איזהנעסקאות?` asked for a new city instead of showing the calculation's transactions. Arithmetic in the rest of the transcript was correct. Existing context/memory tests did not cover this intent. The old generic browsing/count path was insufficient: replacing the prior price metric with count could also list records that had been excluded from the original calculation.
-
-Added a bounded evidence-inspection intent. The server resolves it against the latest same-scope verified calculation, preserves its metric/filters and replays precisely the included evidence IDs. New conflicting filter constraints require clarification rather than silent override. Clarification/refusal turns do not erase the calculation anchor; unrelated successful tools do. Canonical evidence plans are self-contained so restoration and a truncated memory window do not depend on retaining the original turn. The UI shows an immediate transaction table with source/exclusion details. Singular transaction wording and redundant count wording were corrected.
-
-The exact six-message user sequence passed twice (12/12) against an independent raw-CSV oracle, including the typo and the city confirmation. It yielded IDs D100027, D100074 and D100211, mean 35,481.2863327149 in Holon, mean 31,010 in Haifa, and count 21 in Jerusalem. Unit tests additionally ensure excluded/missing/conflicting rows are not silently added to an evidence list. Other current regressions are recorded in QA_REPORT.md. Jira remains disabled; browser interaction QA is still not claimed.
+לא הושלמה בדיקת דפדפן אוטומטית מלאה בגלל הרשאת הכלי; בדיקות קוד ורינדור אינן תחליף לה. תוצאות הבדיקה הידנית והמשוב מהמשתמש שימשו לתיקונים, אך אינן מוצגות ככיסוי מלא של דפדפנים, מובייל או נגישות. מאגר בדיקות סופי אינו מבטיח שכל ניסוח עתידי יובן נכון.

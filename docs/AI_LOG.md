@@ -20,7 +20,7 @@ I used ChatGPT/Codex for planning, implementation, data inspection, tests and do
 
 ## Mistakes caught and corrected
 
-**An evidence follow-up was misunderstood.** After a Holon median calculation, a misspelled Hebrew follow-up meaning “Which transactions?” prompted the model to ask for a city again despite the context. I added an explicit evidence-inspection operation: the server preserves the previous metric, filters and exclusions and lists its included records immediately. The full six-turn sequence passed twice against the live model and an independent CSV oracle, returning D100027, D100074 and D100211. The original input and plans are retained in `evals/results/evidence-live.json`.
+**An evidence follow-up was misunderstood.** After a Holon median calculation, a misspelled Hebrew follow-up meaning “Which transactions?” prompted the model to ask for a city again despite the context. I added an explicit evidence-inspection operation: the server preserves the previous metric, filters and exclusions and lists its included records immediately. The full six-turn sequence passed twice against the live model and an independent CSV oracle, returning D100027, D100074 and D100211. The original input is retained in `evals/evidence-live.ts`, with plans and results in `evals/results/evidence-live.json`.
 
 **Comparison was substituted for an average.** With two selected deals, the model returned a comparison instead of calculating their mean sale price. I clarified the distinction between individual-record comparison and an aggregate over the selection, then reran the tests. The failed run remains in `evals/results/map-scope-aggregate-failure.json`.
 

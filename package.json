@@ -7,9 +7,9 @@
   },
   "scripts": {
     "install:ci": "node scripts/install-dependencies.mjs",
-    "dev": "next dev --hostname 127.0.0.1 --port 5173",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node api.js && next dev --hostname 127.0.0.1 --port 5173",
+    "build": "node api.js && next build",
+    "start": "node api.js && next start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "typecheck": "tsc --noEmit",
